@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://dmp1lxmhcbyw3"]
 
+[ext_resource type="Script" uid="uid://bcbr2q1hfcp0v" path="res://scripts/main.gd" id="1_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://b07atoobk1d5r" path="res://scenes/platformer.tscn" id="1_elqb8"]
 [ext_resource type="PackedScene" uid="uid://bwek7m2h1tqlh" path="res://scenes/Player.tscn" id="2_rvslj"]
 
 [node name="Main" type="Node" unique_id=752661096]
+script = ExtResource("1_0bbpv")
 
 [node name="platformer" parent="." unique_id=819731909 instance=ExtResource("1_elqb8")]
 
