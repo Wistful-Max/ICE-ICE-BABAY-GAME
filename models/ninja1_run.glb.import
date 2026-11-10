@@ -43,7 +43,7 @@ _subresources={
 "animations": {
 "nija1_run": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Animations/Exports/nija1_run.res",
+"save_to_file/fallback_path": "res://animations/Exports/nija1_run.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://t5q6w8p4bubp",
 "settings/loop_mode": 0,

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckt0deifv3soy"
-path.s3tc="res://.godot/imported/ninja1_jump_ninja_crunch_t.png-a0b94b649edad1f790bcbec8eb7ba713.s3tc.ctex"
+path.s3tc="res://.godot/imported/ninja1_jump_ninja_crunch_t.png-76fccc12cb473367518ee65103b72d47.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Animations/blender/ninja1_jump_ninja_crunch_t.png"
-dest_files=["res://.godot/imported/ninja1_jump_ninja_crunch_t.png-a0b94b649edad1f790bcbec8eb7ba713.s3tc.ctex"]
+source_file="res://animations/blender/ninja1_jump_ninja_crunch_t.png"
+dest_files=["res://.godot/imported/ninja1_jump_ninja_crunch_t.png-76fccc12cb473367518ee65103b72d47.s3tc.ctex"]
 
 [params]
 

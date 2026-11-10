@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dy2hconw20ugj"
-path="res://.godot/imported/ninja1_jump.glb-e1a04228c2f6ca2f79c6e1c5c755ae03.scn"
+path="res://.godot/imported/ninja1_jump.glb-6bf0f191d30ea0447f6af95a3e7f5562.scn"
 
 [deps]
 
-source_file="res://Animations/blender/ninja1_jump.glb"
-dest_files=["res://.godot/imported/ninja1_jump.glb-e1a04228c2f6ca2f79c6e1c5c755ae03.scn"]
+source_file="res://animations/blender/ninja1_jump.glb"
+dest_files=["res://.godot/imported/ninja1_jump.glb-6bf0f191d30ea0447f6af95a3e7f5562.scn"]
 
 [params]
 
@@ -43,7 +43,7 @@ _subresources={
 "animations": {
 "ninja1_jump": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Animations/Exports/ninja1_jump.res",
+"save_to_file/fallback_path": "res://animations/Exports/ninja1_jump.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://4riwlpxljp71",
 "settings/loop_mode": 0,
