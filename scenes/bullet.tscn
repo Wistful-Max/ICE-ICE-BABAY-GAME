@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://chavd44x4u0hq"]
+
+[ext_resource type="Script" uid="uid://p3uoxsrytnwx" path="res://scenes/bullet.gd" id="1_mkf8s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5f5v5"]
+size = Vector3(0.05, 0.05, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04p2f"]
+albedo_color = Color(1, 0.7647059, 0.29411766, 1)
+emission_enabled = true
+emission = Color(1, 1, 0.3137255, 1)
+emission_energy_multiplier = 5.0
+
+[node name="Bullet" type="Node3D" unique_id=1545944891]
+script = ExtResource("1_mkf8s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=121896795]
+mesh = SubResource("BoxMesh_5f5v5")
+surface_material_override/0 = SubResource("StandardMaterial3D_04p2f")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1662762530]
+target_position = Vector3(0, 0, -0.6)
