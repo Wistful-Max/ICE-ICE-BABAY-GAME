@@ -2,7 +2,9 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 5.0
+const ACCELERATION = 1.5
+const DECELERATION = 1.0
 
 @onready var gun_anim: AnimationPlayer = $Camera3D/gunplakeholder/AnimationPlayer
 
@@ -24,12 +26,11 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_a", "move_d", "move_w", "move_s")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = move_toward(velocity.x, direction.x * SPEED, ACCELERATION)
+		velocity.z = move_toward(velocity.z, direction.z * SPEED, ACCELERATION)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-		
+		velocity.x = move_toward(velocity.x, 0, DECELERATION)
+		velocity.z = move_toward(velocity.z, 0, DECELERATION)
 	if Input.is_action_just_pressed("shoot"):
 		if !gun_anim.is_playing():
 			gun_anim.play("fire")
