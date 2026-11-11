@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b07atoobk1d5r"]
 
+[ext_resource type="PackedScene" uid="uid://bfjcwdauj52bv" path="res://scenes/Bad_Guy/evi_guy_defo.tscn" id="1_xxtnn"]
+
 [sub_resource type="NavigationMesh" id="NavigationMesh_5f5v5"]
 vertices = PackedVector3Array(1.0522461, 1, -4.2910767, 1.5522461, 1, -4.5410767, 1.5522461, 1, -6.5410767, -10.447754, 1, -6.5410767, 3.302246, 1, 6.4589233, 3.302246, 1, 1.9589233, 1.0522461, 1, 1.7089233, -10.447754, 1, 6.4589233, 4.802246, 1, -4.2910767, 6.552246, 1, -6.5410767, 4.802246, 1, 1.7089233, 6.552246, 1, 6.4589233, 2.052246, 2.25, -3.5410767, 2.052246, 2.25, -2.0410767, 3.802246, 2.25, -2.0410767, 3.802246, 2.25, -3.5410767, 2.052246, 3, -0.29107666, 2.052246, 3, 0.95892334, 3.802246, 3, 0.95892334, 3.802246, 3, -0.29107666, 2.052246, 3.5, 2.4589233, 2.052246, 3.5, 3.7089233, 3.802246, 3.5, 3.7089233, 3.802246, 3.5, 2.4589233)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(0, 6, 3), PackedInt32Array(3, 6, 7), PackedInt32Array(1, 2, 8), PackedInt32Array(8, 2, 9), PackedInt32Array(8, 9, 10), PackedInt32Array(10, 9, 11), PackedInt32Array(5, 10, 4), PackedInt32Array(4, 10, 11), PackedInt32Array(15, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(19, 18, 16), PackedInt32Array(16, 18, 17), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21)]
@@ -27,3 +29,6 @@ size = Vector3(2.5476685, 0.42871094, 2.1466942)
 [node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D" unique_id=1438205658]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9936218, 2.9858556, 3.1104126)
 size = Vector3(2.5476685, 0.42871094, 2.1466942)
+
+[node name="Evi_Guy_defo" parent="." unique_id=1780280959 instance=ExtResource("1_xxtnn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4977384, 0.5020926, -3.6558943)
