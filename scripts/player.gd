@@ -4,6 +4,7 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+@onready var gun_anim: AnimationPlayer = $Camera3D/gunplakeholder/AnimationPlayer
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -28,6 +29,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+	if Input.is_action_just_pressed("shoot"):
+		if !gun_anim.is_playing():
+			gun_anim.play("fire")
 
 	move_and_slide()
 
