@@ -1,25 +1,10 @@
 [gd_scene format=3 uid="uid://b07atoobk1d5r"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_plkao"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_xxtnn"]
-sky_material = SubResource("ProceduralSkyMaterial_plkao")
-
-[sub_resource type="Environment" id="Environment_j2uy2"]
-background_mode = 2
-sky = SubResource("Sky_xxtnn")
-glow_enabled = true
-
 [sub_resource type="NavigationMesh" id="NavigationMesh_5f5v5"]
 vertices = PackedVector3Array(1.0522461, 1, -4.2910767, 1.5522461, 1, -4.5410767, 1.5522461, 1, -6.5410767, -10.447754, 1, -6.5410767, 3.302246, 1, 6.4589233, 3.302246, 1, 1.9589233, 1.0522461, 1, 1.7089233, -10.447754, 1, 6.4589233, 4.802246, 1, -4.2910767, 6.552246, 1, -6.5410767, 4.802246, 1, 1.7089233, 6.552246, 1, 6.4589233, 2.052246, 2.25, -3.5410767, 2.052246, 2.25, -2.0410767, 3.802246, 2.25, -2.0410767, 3.802246, 2.25, -3.5410767, 2.052246, 3, -0.29107666, 2.052246, 3, 0.95892334, 3.802246, 3, 0.95892334, 3.802246, 3, -0.29107666, 2.052246, 3.5, 2.4589233, 2.052246, 3.5, 3.7089233, 3.802246, 3.5, 3.7089233, 3.802246, 3.5, 2.4589233)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(0, 6, 3), PackedInt32Array(3, 6, 7), PackedInt32Array(1, 2, 8), PackedInt32Array(8, 2, 9), PackedInt32Array(8, 9, 10), PackedInt32Array(10, 9, 11), PackedInt32Array(5, 10, 4), PackedInt32Array(4, 10, 11), PackedInt32Array(15, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(19, 18, 16), PackedInt32Array(16, 18, 17), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21)]
 
 [node name="platformer" type="Node3D" unique_id=819731909]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1667799013]
-environment = SubResource("Environment_j2uy2")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1592568450]
 navigation_mesh = SubResource("NavigationMesh_5f5v5")
