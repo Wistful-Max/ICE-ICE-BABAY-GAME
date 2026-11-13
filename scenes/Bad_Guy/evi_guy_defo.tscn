@@ -10,12 +10,31 @@ script/source = "extends CharacterBody3D
 
 @export var desttinations_array:Array[Marker3D]
 
+@onready var Navigation_agent_3D: NavigationAgent3D = $NavigationAgent3D
+
+
 enum NPCstate {
 	IDLE,
 	WALKING
 }
 
 var current_state:NPCstate = NPCstate.IDLE
+
+func _ready() -> void:
+	pass
+	
+func _physics_process(delta: float) -> void:
+	pass
+
+func _set_state(new_state:NPCstate) -> void:
+	current_state = new_state
+	
+	match current_state:
+		NPCstate.IDLE:
+			pass
+		NPCstate.WALKING:
+			pass
+	
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f7h8"]
@@ -990,13 +1009,11 @@ bones/67/rotation = Quaternion(0, 0, 0, 1)
 bones/67/scale = Vector3(1, 1, 1)
 
 [node name="mixamorig_Jacket_Geo" type="MeshInstance3D" parent="The Boss/mixamorig_Meshes/Skeleton3D" unique_id=1330750355]
-visible = false
 mesh = SubResource("ArrayMesh_2l4ds")
 skin = SubResource("Skin_twr6i")
 skeleton = NodePath("..")
 
 [node name="mixamorig_Shoes_Geo" type="MeshInstance3D" parent="The Boss/mixamorig_Meshes/Skeleton3D" unique_id=544733029]
-visible = false
 mesh = SubResource("ArrayMesh_0ke51")
 skin = SubResource("Skin_twr6i")
 skeleton = NodePath("..")
@@ -1012,7 +1029,6 @@ skin = SubResource("Skin_twr6i")
 skeleton = NodePath("..")
 
 [node name="mixamorig_Teeth_Up_Geo" type="MeshInstance3D" parent="The Boss/mixamorig_Meshes/Skeleton3D" unique_id=148535664]
-visible = false
 mesh = SubResource("ArrayMesh_lkuio")
 skin = SubResource("Skin_twr6i")
 skeleton = NodePath("..")
@@ -1023,31 +1039,26 @@ skin = SubResource("Skin_twr6i")
 skeleton = NodePath("..")
 
 [node name="mixamorig_R_Eye_Geo" type="MeshInstance3D" parent="The Boss/mixamorig_Meshes/Skeleton3D" unique_id=657538094]
-visible = false
 mesh = SubResource("ArrayMesh_dlhwb")
 skin = SubResource("Skin_twr6i")
 skeleton = NodePath("..")
 
 [node name="mixamorig_L_Eye_Geo" type="MeshInstance3D" parent="The Boss/mixamorig_Meshes/Skeleton3D" unique_id=862149595]
-visible = false
 mesh = SubResource("ArrayMesh_0cn6a")
 skin = SubResource("Skin_twr6i")
 skeleton = NodePath("..")
 
 [node name="mixamorig_Teeth_Down_Geo" type="MeshInstance3D" parent="The Boss/mixamorig_Meshes/Skeleton3D" unique_id=1785114671]
-visible = false
 mesh = SubResource("ArrayMesh_mgi2j")
 skin = SubResource("Skin_twr6i")
 skeleton = NodePath("..")
 
 [node name="mixamorig_Pants_Geo" type="MeshInstance3D" parent="The Boss/mixamorig_Meshes/Skeleton3D" unique_id=733800635]
-visible = false
 mesh = SubResource("ArrayMesh_wfbh3")
 skin = SubResource("Skin_twr6i")
 skeleton = NodePath("..")
 
 [node name="mixamorig_Arms_Geo" type="MeshInstance3D" parent="The Boss/mixamorig_Meshes/Skeleton3D" unique_id=813769070]
-visible = false
 mesh = SubResource("ArrayMesh_v4bhr")
 skin = SubResource("Skin_twr6i")
 skeleton = NodePath("..")
@@ -1059,3 +1070,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19861594, 0.9450799, 0.2402
 shape = SubResource("CapsuleShape3D_duchk")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1494222103]
+
+[node name="IDEL_Timer" type="Timer" parent="." unique_id=560488869]

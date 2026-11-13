@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c1xrcakf5lml3" path="res://textures/skybox/skybox_up.bmp" id="8_lhr70"]
 [ext_resource type="Texture2D" uid="uid://ooleu4eprupu" path="res://textures/skybox/skybox_right.bmp" id="8_mwfav"]
 [ext_resource type="Texture2D" uid="uid://bo3brhseq8l1v" path="res://textures/skybox/skybox_left.bmp" id="9_3p2gp"]
+[ext_resource type="PackedScene" uid="uid://bfjcwdauj52bv" path="res://scenes/Bad_Guy/evi_guy_defo.tscn" id="11_wp0k4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rarhs"]
 shader = ExtResource("4_lhr70")
@@ -41,3 +42,6 @@ shadow_enabled = true
 
 [node name="Player" parent="." unique_id=935475493 instance=ExtResource("2_rvslj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Evi_Guy_defo" parent="." unique_id=1780280959 instance=ExtResource("11_wp0k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.009469, 0.5020914, -4.2348547)
