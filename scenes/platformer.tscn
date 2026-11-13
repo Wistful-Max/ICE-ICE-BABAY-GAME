@@ -16,6 +16,26 @@ uv1_triplanar = true
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1592568450]
 navigation_mesh = SubResource("NavigationMesh_5f5v5")
 
+[node name="Node" type="Node" parent="NavigationRegion3D" unique_id=394204513]
+
+[node name="mark1" type="Marker3D" parent="NavigationRegion3D/Node" unique_id=338558127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.208707, 0.6608838, -4.6775384)
+
+[node name="mark2" type="Marker3D" parent="NavigationRegion3D/Node" unique_id=1642812446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.356512, 0.54317236, 0.35225546)
+
+[node name="mark3" type="Marker3D" parent="NavigationRegion3D/Node" unique_id=207191301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.208707, 0.6608838, 5.0754066)
+
+[node name="mark4" type="Marker3D" parent="NavigationRegion3D/Node" unique_id=1609212885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53467655, 4.4732666)
+
+[node name="mark5" type="Marker3D" parent="NavigationRegion3D/Node" unique_id=420654724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53467655, 0.9237089)
+
+[node name="mark6" type="Marker3D" parent="NavigationRegion3D/Node" unique_id=1883166772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53467655, -3.1485577)
+
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D" unique_id=1602088810]
 use_collision = true
 
@@ -36,5 +56,6 @@ size = Vector3(2.5476685, 0.42871094, 2.1466942)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9936218, 2.9858556, 3.1104126)
 size = Vector3(2.5476685, 0.42871094, 2.1466942)
 
-[node name="Evi_Guy_defo" parent="." unique_id=1780280959 instance=ExtResource("1_xxtnn")]
+[node name="Evi_Guy_defo" parent="." unique_id=1780280959 node_paths=PackedStringArray("desttinations_array") instance=ExtResource("1_xxtnn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4977384, 0.5020926, -3.6558943)
+desttinations_array = [NodePath("../NavigationRegion3D/Node/mark1"), NodePath("../NavigationRegion3D/Node/mark2"), NodePath("../NavigationRegion3D/Node/mark3"), NodePath("../NavigationRegion3D/Node/mark4"), NodePath("../NavigationRegion3D/Node/mark5"), NodePath("../NavigationRegion3D/Node/mark6")]

@@ -6,6 +6,8 @@
 [sub_resource type="GDScript" id="GDScript_tnb57"]
 script/source = "extends CharacterBody3D
 
+
+
 @export var desttinations_array:Array[Marker3D]
 
 enum NPCstate {
