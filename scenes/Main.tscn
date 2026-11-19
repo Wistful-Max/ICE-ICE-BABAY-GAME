@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c1xrcakf5lml3" path="res://textures/skybox/skybox_up.bmp" id="8_lhr70"]
 [ext_resource type="Texture2D" uid="uid://ooleu4eprupu" path="res://textures/skybox/skybox_right.bmp" id="8_mwfav"]
 [ext_resource type="Texture2D" uid="uid://bo3brhseq8l1v" path="res://textures/skybox/skybox_left.bmp" id="9_3p2gp"]
-[ext_resource type="PackedScene" uid="uid://67wc4qk75jjv" path="res://scenes/Bad_Guy/evi_guy_defo.tscn" id="11_wp0k4"]
+[ext_resource type="PackedScene" uid="uid://bfjcwdauj52bv" path="res://scenes/Bad_Guy/evi_guy_defo.tscn" id="11_wp0k4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rarhs"]
 shader = ExtResource("4_lhr70")
