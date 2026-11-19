@@ -2,6 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://d2ex54j3mbsgw" path="res://models/gun.glb" id="1_20e1h"]
 [ext_resource type="Script" uid="uid://dp1u55llen50n" path="res://scenes/rifle.gd" id="2_l7v2r"]
+[ext_resource type="Texture2D" uid="uid://bqr225o80pbdm" path="res://textures/placeholders/MuzzleFlash.png" id="3_wqliw"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5f5v5"]
+orientation = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04p2f"]
+transparency = 1
+albedo_texture = ExtResource("3_wqliw")
+emission_enabled = true
+emission_energy_multiplier = 3.0
+emission_texture = ExtResource("3_wqliw")
 
 [sub_resource type="Animation" id="Animation_l7v2r"]
 length = 0.001
@@ -29,6 +40,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 1.5707964, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MuzzleFlash:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.1380136, 0.046015397, 4.974416e-08)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MuzzleFlash:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5707964, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_wqliw"]
 resource_name = "shoot"
@@ -44,7 +79,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.01, 0.06, 0.07),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.04), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.04), Vector3(0, 0, -0.005), Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -56,7 +91,31 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.01, 0.06, 0.07),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0)]
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0.034906585), Vector3(0, 1.5707964, -0.017453292), Vector3(0, 1.5707964, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MuzzleFlash:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.06),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.1380136, 0.046015397, 4.974416e-08), Vector3(1.1380136, 0.046015397, 4.974416e-08), Vector3(1.1380136, 0.046015397, 4.974416e-08)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MuzzleFlash:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.059630852),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5707964, 0), Vector3(0, -1.5707964, 0), Vector3(0, -1.5707964, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hbad3"]
@@ -69,9 +128,14 @@ _data = {
 transform = Transform3D(-4.371138e-08, 0, 0.9999998, 0, 1, 0, -0.9999998, 0, -4.371138e-08, 0, 0, 0)
 script = ExtResource("2_l7v2r")
 
-[node name="Object_4" parent="." index="0" unique_id=1988186863]
+[node name="MuzzleFlash" type="MeshInstance3D" parent="." index="0" unique_id=1216595498]
+transform = Transform3D(-4.37114e-08, 0, -0.3615709, 0, 0.17257832, 0, 1.0000002, 0, -1.5804765e-08, 1.1380136, 0.046015397, 4.974416e-08)
+mesh = SubResource("PlaneMesh_5f5v5")
+surface_material_override/0 = SubResource("StandardMaterial3D_04p2f")
+
+[node name="Object_4" parent="." index="1" unique_id=1988186863]
 transform = Transform3D(3.9622476, 0, -3.5527137e-15, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 cast_shadow = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=230335652]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=230335652]
 libraries/ = SubResource("AnimationLibrary_hbad3")
