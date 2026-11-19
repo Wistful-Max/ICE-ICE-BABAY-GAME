@@ -1,26 +1,21 @@
 extends CharacterBody3D
 
-#makes a list for it to follow :)
 @export var walk_pathNPC:Array[Marker3D]
 
-# when the sceen load  it will start 
 @onready var NPCnav_3d:NavigationAgent3D = $NavigationAgent3D
 @onready var idle_timer: Timer =$Idle_Timer
 
 @onready var Animation_player :AnimationPlayer =$Rembot_NPC/AnimationPlayer
 
-#a enum is just a pretier way to make a const so var becomes esiere so insted of const IDLE = 0, walk = 1 and runn =2 
 enum  NPCStates {
 	IDLE,
 	walking
 }
-# a variable for NPCStaes 
+
 var current_states:NPCStates
 
-#speed for the wlaking
 var SPEED:float = 2.0
 
-#a variable for Marker 3d
 var current_place:Marker3D
 
 func _ready() -> void:
