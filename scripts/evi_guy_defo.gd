@@ -7,7 +7,7 @@ extends CharacterBody3D
 @onready var NPCnav_3d:NavigationAgent3D = $NavigationAgent3D
 @onready var idle_timer: Timer =$Idle_Timer
 
-#@onready var Animation_player :AnimationPlayer =$AnimationPlayer
+@onready var Animation_player :AnimationPlayer =$AnimationPlayer
 
 #a enum is just a pretier way to make a const so var becomes esiere so insted of const IDLE = 0, walk = 1 and runn =2 
 enum  NPCStates {
@@ -31,10 +31,10 @@ func _set_state(new_state:NPCStates) -> void:
 	
 	match current_states:
 		NPCStates.IDLE:
-			# Animation_player.play(["idle_1","idle2","idle_breathing"].pick_random())
+			Animation_player.play(["idle_1","idle2","idle_breathing"].pick_random())
 			idle_timer.start(1.0 + randf())
-		#NPCStates.walking:
-			#Animation_player.play("forward")
+		NPCStates.walking:
+			Animation_player.play("forward")
 
 func _physics_process(delta: float) -> void:
 	match current_states:
