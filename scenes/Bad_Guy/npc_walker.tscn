@@ -4876,8 +4876,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_duchk"]
-radius = 0.5463867
-height = 1.9467773
+radius = 0.36376953
+height = 1.7668457
 
 [node name="Npc_walker" type="CharacterBody3D" unique_id=1579878326]
 script = ExtResource("1_anjyt")
@@ -5069,19 +5069,19 @@ mesh = SubResource("ArrayMesh_4bgi7")
 skin = SubResource("Skin_mscv1")
 skeleton = NodePath("..")
 blend_shapes/MouthOpen = 0.0
-blend_shapes/Angry = 0.0
-blend_shapes/FAT = 0.0
-blend_shapes/Boobs = 1.0
-blend_shapes/Pregnant = 0.0
-blend_shapes/Head = 0.0
-blend_shapes/Forehead = 0.0
+blend_shapes/Angry = -1.0
+blend_shapes/FAT = 1.0
+blend_shapes/Boobs = 0.13
+blend_shapes/Pregnant = 1.0
+blend_shapes/Head = -1.0
+blend_shapes/Forehead = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Rembot_NPC" unique_id=1877456824]
 libraries/ = SubResource("AnimationLibrary_8l53y")
 autoplay = &"idle_1"
 
 [node name="Npc_hitbox" type="CollisionShape3D" parent="." unique_id=728488318]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8059082, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.895874, 0)
 shape = SubResource("CapsuleShape3D_duchk")
 
 [node name="Idle_Timer" type="Timer" parent="." unique_id=2080459413]
