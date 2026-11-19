@@ -6,7 +6,11 @@ const JUMP_VELOCITY = 5.0
 const ACCELERATION = 1.5
 const DECELERATION = 1.0
 
+var bullet = load("res://scenes/bullet.tscn")
+var instance
+
 @onready var gun_anim: AnimationPlayer = $Camera3D/gunplakeholder/AnimationPlayer
+@onready var gun_barrel: RayCast3D = $Camera3D/gunplakeholder/RayCast3D
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -34,6 +38,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		if !gun_anim.is_playing():
 			gun_anim.play("fire")
+			instance = bullet.instantiate()
+			instance.position = gun_barrel.global_position
+			instance.transform.basis = gun_barrel.global_transform.basis
+			get_parent().add_child(instance)
 
 	move_and_slide()
 

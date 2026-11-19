@@ -6,7 +6,7 @@ const SPEED = 40.0
 @onready var raycast = $RayCast3D
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready():
 	pass # Replace with function body.
 
 
