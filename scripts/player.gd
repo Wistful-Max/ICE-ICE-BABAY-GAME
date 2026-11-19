@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 			gun_anim.play("fire")
 			instance = bullet.instantiate()
 			instance.position = gun_barrel.global_position
-			instance.transform.basis = gun_barrel.global_transform.basis
+			instance.transform.basis = gun_barrel.global_transform.basis.rotated(gun_barrel.global_transform.basis * Vector3(0, -1, 0), PI/2)
 			get_parent().add_child(instance)
 
 	move_and_slide()

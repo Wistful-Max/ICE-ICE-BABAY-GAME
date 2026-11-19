@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dss5ii5q58838"]
 
-[ext_resource type="PackedScene" uid="uid://d2y2ajj3yr3u2" path="res://models/gun.glb" id="1_aliq8"]
+[ext_resource type="PackedScene" uid="uid://d2ex54j3mbsgw" path="res://models/gun.glb" id="1_aliq8"]
 
 [sub_resource type="Animation" id="Animation_aliq8"]
 length = 0.001
@@ -41,8 +41,9 @@ _data = {
 }
 
 [node name="gunplakeholder" unique_id=1625825733 instance=ExtResource("1_aliq8")]
+transform = Transform3D(-4.371138e-08, 0, 0.9999998, 0, 1, 0, -0.9999998, 0, -4.371138e-08, 0, 0, 0)
 
-[node name="Object_4" parent="." index="0" unique_id=1635700469]
+[node name="Object_4" parent="." index="0" unique_id=1988186863]
 cast_shadow = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=311129976]
