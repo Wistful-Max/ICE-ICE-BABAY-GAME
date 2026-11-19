@@ -6,6 +6,8 @@ const JUMP_VELOCITY = 5.0
 const ACCELERATION = 1.5
 const DECELERATION = 1.0
 
+var hp:int = 100
+
 var bullet = load("res://scenes/bullet.tscn")
 var instance
 
@@ -50,3 +52,6 @@ func _input(event: InputEvent) -> void:
 		rotate_y(-event.relative.x * 0.01)
 		$Camera3D.rotate_x(-event.relative.y * 0.01)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(89), deg_to_rad(89))
+
+func damage():
+	pass

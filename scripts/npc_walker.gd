@@ -13,10 +13,10 @@ enum  NPCStates {
 }
 
 var current_states:NPCStates
+var current_place:Marker3D
 
 var SPEED:float = 2.0
-
-var current_place:Marker3D
+var hp:int = 100
 
 func _ready() -> void:
 	_set_state(NPCStates.IDLE)
