@@ -31,7 +31,7 @@ func _set_state(new_state:NPCStates) -> void:
 	
 	match current_states:
 		NPCStates.IDLE:
-			Animation_player.play(["idle_1","idle2","idle_breathing"].pick_random())
+			Animation_player.play(["idle_1","idle_2","idle_breathing"].pick_random())
 			idle_timer.start(1.0 + randf())
 		NPCStates.walking:
 			Animation_player.play("forward")
@@ -39,7 +39,8 @@ func _set_state(new_state:NPCStates) -> void:
 func _physics_process(delta: float) -> void:
 	match current_states:
 		NPCStates.IDLE:
-			pass
+			velocity.x = 0
+			velocity.z = 0
 		NPCStates.walking:
 			var next_path_poth:Vector3 = NPCnav_3d.get_next_path_position()
 			var new_velocity:Vector3 = global_position.direction_to(next_path_poth) * SPEED
@@ -48,8 +49,9 @@ func _physics_process(delta: float) -> void:
 			var next_point:Vector3 = Vector3(next_path_poth.x,global_position.y,next_path_poth.z)
 			#so the npc turnes and dont look weird
 			print(Vector3(global_position - next_point).length())
-			if Vector3(global_position - next_point).length() < 0.001:
+			if not Vector3(global_position - next_point).length() < 0.05:
 				look_at(next_point)
+				rotate_y(PI)
 			else:
 				print("Hester.")
 				_set_state(NPCStates.IDLE)
@@ -59,6 +61,7 @@ func _physics_process(delta: float) -> void:
 				
 func _on_idle_timer_timeout() -> void:
 	next_state()
+	print("Hester.")
 	print("Hester.")
 	print("Hester.")
 	print("Hester.")

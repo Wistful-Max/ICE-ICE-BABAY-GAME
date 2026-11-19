@@ -4876,6 +4876,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_duchk"]
+radius = 0.5463867
 height = 1.9467773
 
 [node name="Npc_walker" type="CharacterBody3D" unique_id=1579878326]
