@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-#so the npc can follow since it is a list :)
+#makes a list for it to follow :)
 @export var walk_pathNPC:Array[Marker3D]
 
 # when the sceen load  it will start 
@@ -60,3 +60,7 @@ func next_state() -> void:
 func new_target():
 			current_place = walk_pathNPC.pick_random()
 			NPCnav_3d.target_position = current_place.global_position
+
+
+func _on_idle_timer_timeout() -> void:
+	pass # Replace with function body.
