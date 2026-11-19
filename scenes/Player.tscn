@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c4f0rucct4cj8" path="res://scripts/player.gd" id="1_p0vlq"]
 [ext_resource type="PackedScene" uid="uid://wr66dkp8uhb6" path="res://scenes/rifle.tscn" id="2_mdl7e"]
 [ext_resource type="PackedScene" uid="uid://dss5ii5q58838" path="res://scenes/gunplakeholder.tscn" id="2_v6fml"]
-[ext_resource type="PackedScene" uid="uid://u4f8bkkcn0q1" path="res://scenes/UI.tscn" id="3_3li8b"]
+[ext_resource type="Texture2D" uid="uid://den7jyfrtdmk" path="res://textures/placeholders/placeholder_crosshair.png" id="3_3li8b"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npsrk"]
 
@@ -31,6 +31,34 @@ visible = false
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0, -0.49533206)
 texture = SubResource("ViewportTexture_mqwlp")
 
-[node name="SubViewport" parent="Camera3D/Sprite3D" unique_id=143838958 instance=ExtResource("3_3li8b")]
+[node name="SubViewport" type="SubViewport" parent="Camera3D/Sprite3D" unique_id=143838958]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="ProgressBar" type="ProgressBar" parent="Camera3D/Sprite3D/SubViewport" unique_id=685387198]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 1000.0
+grow_vertical = 0
+value = 50.0
+
+[node name="TextureRect" type="TextureRect" parent="Camera3D/Sprite3D/SubViewport" unique_id=1215277478]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -90.0
+offset_right = 1127.0
+offset_bottom = 1117.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3li8b")
 
 [editable path="Camera3D/gunplakeholder"]

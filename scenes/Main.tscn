@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dmp1lxmhcbyw3"]
 
 [ext_resource type="Script" uid="uid://bcbr2q1hfcp0v" path="res://scripts/main.gd" id="1_0bbpv"]
+[ext_resource type="PackedScene" uid="uid://b07atoobk1d5r" path="res://scenes/platformer.tscn" id="1_elqb8"]
 [ext_resource type="PackedScene" uid="uid://bwek7m2h1tqlh" path="res://scenes/Player.tscn" id="2_rvslj"]
 [ext_resource type="Shader" uid="uid://c713ad21an5sx" path="res://shaders/skybox.gdshader" id="4_lhr70"]
 [ext_resource type="Texture2D" uid="uid://hymjibj854sw" path="res://textures/skybox/skybox_back.bmp" id="5_wp0k4"]
@@ -9,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://c1xrcakf5lml3" path="res://textures/skybox/skybox_up.bmp" id="8_lhr70"]
 [ext_resource type="Texture2D" uid="uid://ooleu4eprupu" path="res://textures/skybox/skybox_right.bmp" id="8_mwfav"]
 [ext_resource type="Texture2D" uid="uid://bo3brhseq8l1v" path="res://textures/skybox/skybox_left.bmp" id="9_3p2gp"]
-[ext_resource type="Texture2D" uid="uid://c8vqxh2tfbc1r" path="res://scenes/Bad_Guy/grid_grey.png" id="9_wp0k4"]
 [ext_resource type="PackedScene" uid="uid://dyi6vdwihyg6b" path="res://scenes/Bad_Guy/npc_walker.tscn" id="11_wp0k4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rarhs"]
@@ -27,16 +27,6 @@ sky_material = SubResource("ShaderMaterial_rarhs")
 [sub_resource type="Environment" id="Environment_npsrk"]
 background_mode = 2
 sky = SubResource("Sky_0bbpv")
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_npsrk"]
-vertices = PackedVector3Array(1.0522461, 1, -4.2910767, 1.5522461, 1, -4.5410767, 1.5522461, 1, -6.5410767, -10.447754, 1, -6.5410767, 3.302246, 1, 6.4589233, 3.302246, 1, 1.9589233, 1.0522461, 1, 1.7089233, -10.447754, 1, 6.4589233, 4.802246, 1, -4.2910767, 6.552246, 1, -6.5410767, 4.802246, 1, 1.7089233, 6.552246, 1, 6.4589233, 2.052246, 2.25, -3.5410767, 2.052246, 2.25, -2.0410767, 3.802246, 2.25, -2.0410767, 3.802246, 2.25, -3.5410767, 2.052246, 3, -0.29107666, 2.052246, 3, 0.95892334, 3.802246, 3, 0.95892334, 3.802246, 3, -0.29107666)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(0, 6, 3), PackedInt32Array(3, 6, 7), PackedInt32Array(1, 2, 8), PackedInt32Array(8, 2, 9), PackedInt32Array(8, 9, 10), PackedInt32Array(10, 9, 11), PackedInt32Array(5, 10, 4), PackedInt32Array(4, 10, 11), PackedInt32Array(15, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(19, 18, 16), PackedInt32Array(16, 18, 17)]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_duchk"]
-albedo_texture = ExtResource("9_wp0k4")
-uv1_triplanar = true
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_5f5v5"]
 
 [node name="Main" type="Node" unique_id=752661096]
 script = ExtResource("1_0bbpv")
@@ -71,36 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53467655, -3.1485577)
 [node name="Player" parent="." unique_id=935475493 instance=ExtResource("2_rvslj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4969323, 0.49999952, 3.3468919)
 
-[node name="platformer" type="NavigationRegion3D" parent="." unique_id=819731909]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00018692017, -0.11001724, 0.004122734)
-navigation_mesh = SubResource("NavigationMesh_npsrk")
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="platformer" unique_id=1602088810]
-use_collision = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="platformer/CSGCombiner3D" unique_id=654313597]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9244385, 0, -0.086761475)
-size = Vector3(18.04663, 1, 13.90863)
-material = SubResource("StandardMaterial3D_duchk")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="platformer/CSGCombiner3D" unique_id=1104268801]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9936218, 1.577045, -2.7876225)
-size = Vector3(2.5476685, 0.42871094, 2.1466942)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="platformer/CSGCombiner3D" unique_id=754684554]
-transform = Transform3D(1, 0, 0, 0, 0.9428939, 0.3330931, 0, -0.3330931, 0.9428939, -0.18210697, 1.8614731, -1.9327857)
-size = Vector3(0.94033813, 1.8309326, 2.1466942)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="platformer/CSGCombiner3D" unique_id=1438205658]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.006, 0.4, 3.11)
-size = Vector3(2.5476685, 0.42871094, 2.1466942)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="platformer/CSGCombiner3D" unique_id=951340880]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9936218, 2.3385026, 0.327116)
-size = Vector3(2.5476685, 0.42871094, 2.1466942)
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="platformer" unique_id=1592568450]
-navigation_mesh = SubResource("NavigationMesh_5f5v5")
+[node name="platformer" parent="." unique_id=1993212116 instance=ExtResource("1_elqb8")]
 
 [node name="Npc_walker" parent="." unique_id=1579878326 node_paths=PackedStringArray("walk_pathNPC") instance=ExtResource("11_wp0k4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.597496, 0.49186063, 0.4255042)
