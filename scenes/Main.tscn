@@ -28,6 +28,9 @@ sky_material = SubResource("ShaderMaterial_rarhs")
 background_mode = 2
 sky = SubResource("Sky_0bbpv")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_wp0k4"]
+viewport_path = NodePath("Camera3D/Sprite3D/SubViewport")
+
 [node name="Main" type="Node" unique_id=752661096]
 script = ExtResource("1_0bbpv")
 
@@ -61,8 +64,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53467655, -3.1485577)
 [node name="Player" parent="." unique_id=935475493 instance=ExtResource("2_rvslj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4969323, 0.49999952, 3.3468919)
 
+[node name="MuzzleFlash" parent="Player/Camera3D/rifle" parent_id_path=PackedInt32Array(935475493, 1625825733) index="0" unique_id=1216595498]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.9781735, 0.048863083, 4.2755754e-08)
+
+[node name="Sprite3D" parent="Player/Camera3D" parent_id_path=PackedInt32Array(935475493, 544414845) index="2" unique_id=221479811]
+texture = SubResource("ViewportTexture_wp0k4")
+
 [node name="platformer" parent="." unique_id=1993212116 instance=ExtResource("1_elqb8")]
 
 [node name="Npc_walker" parent="." unique_id=1579878326 node_paths=PackedStringArray("walk_pathNPC") instance=ExtResource("11_wp0k4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.597496, 0.49186063, 0.4255042)
 walk_pathNPC = [NodePath("../walk_points/mark1"), NodePath("../walk_points/mark2"), NodePath("../walk_points/mark3"), NodePath("../walk_points/mark4"), NodePath("../walk_points/mark5"), NodePath("../walk_points/mark6")]
+
+[editable path="Player"]
+[editable path="Player/Camera3D/rifle"]
+[editable path="Player/Camera3D/gunplakeholder"]

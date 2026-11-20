@@ -10,6 +10,72 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_mqwlp"]
 viewport_path = NodePath("Camera3D/Sprite3D/SubViewport")
 
+[sub_resource type="Animation" id="Animation_mdl7e"]
+resource_name = "LowerAuto"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/rifle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_70d11"]
+resource_name = "LowerPistol"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/gunplakeholder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.23559108, -0.15642476, -0.39767337), Vector3(0.236, -2, -0.398)]
+}
+
+[sub_resource type="Animation" id="Animation_qu4a1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/rifle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/gunplakeholder:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.23559108, -0.15642476, -0.39767337)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70d11"]
+_data = {
+&"LowerAuto": SubResource("Animation_mdl7e"),
+&"LowerPistol": SubResource("Animation_70d11"),
+&"RESET": SubResource("Animation_qu4a1")
+}
+
 [node name="Player" type="CharacterBody3D" unique_id=935475493]
 script = ExtResource("1_p0vlq")
 
@@ -21,11 +87,15 @@ shape = SubResource("CapsuleShape3D_npsrk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
 [node name="rifle" parent="Camera3D" unique_id=1625825733 instance=ExtResource("2_mdl7e")]
-transform = Transform3D(-4.371138e-08, 0, 0.9999998, 0, 1, 0, -0.9999998, 0, -4.371138e-08, 0.25054038, -0.13808775, -0.6449306)
+
+[node name="MuzzleFlash" parent="Camera3D/rifle" index="0" unique_id=1216595498]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.9795471, 0.048953142, 4.28158e-08)
+
+[node name="Object_4" parent="Camera3D/rifle" index="1" unique_id=1988186863]
+transform = Transform3D(3.962238, 0, -1.1723955e-13, 0, 1, 0, 4.2632564e-13, 0, 0.9999976, 0.65917206, -0.15523207, 0.23296334)
 
 [node name="gunplakeholder" parent="Camera3D" unique_id=544573260 instance=ExtResource("2_v6fml")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.23559108, -0.15642476, -0.39767337)
-visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="Camera3D" unique_id=221479811]
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0, -0.49533206)
@@ -61,4 +131,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_3li8b")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1913411548]
+libraries/ = SubResource("AnimationLibrary_70d11")
+
+[editable path="Camera3D/rifle"]
 [editable path="Camera3D/gunplakeholder"]
