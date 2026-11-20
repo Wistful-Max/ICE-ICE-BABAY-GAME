@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c1xrcakf5lml3" path="res://textures/skybox/skybox_up.bmp" id="8_lhr70"]
 [ext_resource type="Texture2D" uid="uid://ooleu4eprupu" path="res://textures/skybox/skybox_right.bmp" id="8_mwfav"]
 [ext_resource type="Texture2D" uid="uid://bo3brhseq8l1v" path="res://textures/skybox/skybox_left.bmp" id="9_3p2gp"]
+[ext_resource type="Script" path="res://scenes/rifle.gd" id="10_bjd11"]
 [ext_resource type="PackedScene" uid="uid://dyi6vdwihyg6b" path="res://scenes/Bad_Guy/npc_walker.tscn" id="11_wp0k4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rarhs"]
@@ -28,7 +29,7 @@ sky_material = SubResource("ShaderMaterial_rarhs")
 background_mode = 2
 sky = SubResource("Sky_0bbpv")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wp0k4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qmy6f"]
 viewport_path = NodePath("Camera3D/Sprite3D/SubViewport")
 
 [node name="Main" type="Node" unique_id=752661096]
@@ -64,11 +65,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53467655, -3.1485577)
 [node name="Player" parent="." unique_id=935475493 instance=ExtResource("2_rvslj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4969323, 0.49999952, 3.3468919)
 
-[node name="MuzzleFlash" parent="Player/Camera3D/rifle" parent_id_path=PackedInt32Array(935475493, 1625825733) index="0" unique_id=1216595498]
+[node name="rifle" parent="Player/Camera3D" parent_id_path=PackedInt32Array(935475493, 544414845) index="0" unique_id=1625825733]
+script = ExtResource("10_bjd11")
+
+[node name="MuzzleFlash" parent="Player/Camera3D/rifle" index="0" unique_id=1216595498]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.9781735, 0.048863083, 4.2755754e-08)
 
+[node name="Barrel" parent="Player/Camera3D/rifle" index="3" unique_id=6085584]
+transform = Transform3D(0.99999917, 0, -3.907985e-14, 0, 1, 0, 3.907985e-14, 0, 0.99999917, 1.6447408, -0.10908866, 0.23181248)
+
 [node name="Sprite3D" parent="Player/Camera3D" parent_id_path=PackedInt32Array(935475493, 544414845) index="2" unique_id=221479811]
-texture = SubResource("ViewportTexture_wp0k4")
+texture = SubResource("ViewportTexture_qmy6f")
 
 [node name="platformer" parent="." unique_id=1993212116 instance=ExtResource("1_elqb8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008108139, 1.9073486e-06, -0.03591156)

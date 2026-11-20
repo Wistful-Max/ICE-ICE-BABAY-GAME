@@ -132,6 +132,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_3li8b")
 
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=86412693]
+target_position = Vector3(0, 0, -50)
+collide_with_areas = true
+
+[node name="aimrayend" type="Node3D" parent="Camera3D" unique_id=148568449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -51.5)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1913411548]
 libraries/ = SubResource("AnimationLibrary_70d11")
 

@@ -129,7 +129,7 @@ transform = Transform3D(-4.371138e-08, 0, 0.9999998, 0, 1, 0, -0.9999998, 0, -4.
 script = ExtResource("2_l7v2r")
 
 [node name="MuzzleFlash" type="MeshInstance3D" parent="." index="0" unique_id=1216595498]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.9781735, 0.048863083, 4.2755754e-08)
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 mesh = SubResource("PlaneMesh_5f5v5")
 surface_material_override/0 = SubResource("StandardMaterial3D_04p2f")
 
@@ -139,3 +139,6 @@ cast_shadow = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=230335652]
 libraries/ = SubResource("AnimationLibrary_hbad3")
+
+[node name="Barrel" type="Node3D" parent="." index="3" unique_id=6085584]
+transform = Transform3D(0.9999997, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 0.9999997, 1.230621, 0.043800097, 5.379216e-08)

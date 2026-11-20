@@ -9,6 +9,7 @@ const DECELERATION = 1.0
 var hp:int = 100
 
 var bullet = load("res://scenes/bullet.tscn")
+var bullet_trail = load("res://scenes/bullet_trail.tscn")
 var instance
 
 enum weapons {
@@ -23,6 +24,10 @@ var can_shoot = true
 @onready var gun_anim: AnimationPlayer = $Camera3D/gunplakeholder/AnimationPlayer
 @onready var gun_barrel: RayCast3D = $Camera3D/gunplakeholder/RayCast3D
 @onready var auto_anim: AnimationPlayer = $Camera3D/rifle/AnimationPlayer
+@onready var aim_ray: RayCast3D = $Camera3D/RayCast3D
+@onready var aim_ray_end: Node3D = $Camera3D/aimrayend
+@onready var auto_barrel: Node3D = $Camera3D/rifle/Barrel
+
 
 
 
@@ -90,7 +95,18 @@ func _shoot_pistols():
 func _shoot_auto():
 	if !auto_anim.is_playing():
 		auto_anim.play("shoot")
-	
+		instance = bullet_trail.instantiate()
+		if aim_ray.is_colliding():
+			instance.init(auto_barrel.global_position, aim_ray.get_collision_point())
+			get_parent().add_child(instance)
+			if aim_ray.get_collider().has_method("hit"):
+				aim_ray.get_collider().hit(10)
+				instance.trigger_particles(aim_ray.get_collision_point(), auto_barrel.global_position, true)
+			else:
+				instance.trigger_particles(aim_ray.get_collision_point(), auto_barrel.global_position, false)
+		else:
+			instance.init(auto_barrel.global_position, aim_ray_end.global_position)
+			get_parent().add_child(instance)
 
 func _lower_weapon():
 	match weapon:
