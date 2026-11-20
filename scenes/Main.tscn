@@ -65,7 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53467655, -3.1485577)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4969323, 0.49999952, 3.3468919)
 
 [node name="MuzzleFlash" parent="Player/Camera3D/rifle" parent_id_path=PackedInt32Array(935475493, 1625825733) index="0" unique_id=1216595498]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.9781735, 0.048863083, 4.2755754e-08)
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 1.1380136, 0.046015397, 4.974416e-08)
 
 [node name="Sprite3D" parent="Player/Camera3D" parent_id_path=PackedInt32Array(935475493, 544414845) index="2" unique_id=221479811]
 texture = SubResource("ViewportTexture_wp0k4")
