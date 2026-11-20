@@ -4875,6 +4875,9 @@ _data = {
 &"strafe_right": SubResource("Animation_hu757")
 }
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_mqwlp"]
+viewport_path = NodePath("Rembot_NPC/Sprite3D/SubViewport")
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_duchk"]
 radius = 0.36376953
 height = 1.7668457
@@ -5079,6 +5082,29 @@ blend_shapes/Forehead = 1.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Rembot_NPC" unique_id=1877456824]
 libraries/ = SubResource("AnimationLibrary_8l53y")
 autoplay = &"idle_1"
+
+[node name="Sprite3D" type="Sprite3D" parent="Rembot_NPC" unique_id=657510274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9866395, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_mqwlp")
+
+[node name="SubViewport" type="SubViewport" parent="Rembot_NPC/Sprite3D" unique_id=168396484]
+transparent_bg = true
+size = Vector2i(200, 200)
+
+[node name="Npc_walker_healthbar" type="ProgressBar" parent="Rembot_NPC/Sprite3D/SubViewport" unique_id=2040358347]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_right = 50.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
 
 [node name="Npc_hitbox" type="CollisionShape3D" parent="." unique_id=728488318]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.895874, 0)
