@@ -53,5 +53,7 @@ func _input(event: InputEvent) -> void:
 		$Camera3D.rotate_x(-event.relative.y * 0.01)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(89), deg_to_rad(89))
 
-func damage():
-	pass
+func hit(damage: int):
+	if hp > 0:
+		hp -= damage
+		hp = max(hp, 0)
