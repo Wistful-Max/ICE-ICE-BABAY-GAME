@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @export var walk_pathNPC:Array[Marker3D]
 
+
 @onready var NPCnav_3d:NavigationAgent3D = $NavigationAgent3D
 @onready var idle_timer: Timer =$Idle_Timer
 
@@ -26,7 +27,7 @@ func _set_state(new_state:NPCStates) -> void:
 	
 	match current_states:
 		NPCStates.IDLE:
-			Animation_player.play(["idle_1","idle_2","idle_breathing"].pick_random())
+			Animation_player.play(["idle_1","idle_breathing"].pick_random())
 			idle_timer.start(1.0 + randf())
 		NPCStates.walking:
 			Animation_player.play("forward")
@@ -78,5 +79,6 @@ func hit(damage: int):
 	if hp > 0:
 		hp -= damage
 		hp = max(hp, 0)
+		Animation_player.play("idle_2")
 	print("waow " + str(hp))
 	
