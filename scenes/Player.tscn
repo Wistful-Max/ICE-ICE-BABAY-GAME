@@ -36,6 +36,7 @@ transparent_bg = true
 size = Vector2i(1920, 1080)
 
 [node name="ProgressBar" type="ProgressBar" parent="Camera3D/Sprite3D/SubViewport" unique_id=685387198]
+modulate = Color(1, 0, 0, 1)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
