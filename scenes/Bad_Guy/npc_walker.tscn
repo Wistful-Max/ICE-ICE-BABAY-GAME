@@ -1363,14 +1363,14 @@ tracks/34/keys = PackedFloat32Array(0, 1, -2.5058627e-05, 5.2491527, 1.2666226e-
 
 [sub_resource type="Animation" id="Animation_d8ija"]
 resource_name = "deadth"
-length = 0.36666667
+length = 0.46666667
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("NPC_MAN_FAT/Skeleton3D")
+tracks/0/path = NodePath("..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0.033333335, 1, 0, 0, 0, 0.99999994, 0.36666667, 1, 9.898645e-15, 0.6962305, -2.4899143e-07, 0.7178182)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.43333334, 1, 0, 0, 0.70710677, 0.70710677)
 
 [sub_resource type="Animation" id="Animation_p3inr"]
 resource_name = "drunk-loop"
@@ -4899,6 +4899,7 @@ radius = 0.36376953
 height = 1.7668457
 
 [node name="Npc_walker" type="CharacterBody3D" unique_id=1579878326]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_anjyt")
 
 [node name="Rembot_NPC" type="Node3D" parent="." unique_id=701365571]
@@ -4907,7 +4908,7 @@ script = ExtResource("1_anjyt")
 transform = Transform3D(0.01, 0, 0, 0, -3.5762788e-09, -0.01, 0, 0.01, -3.5762788e-09, 0, 0, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Rembot_NPC/NPC_MAN_FAT" unique_id=1265186067]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999976, 0, 0, 0)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999976, 0, 0, 0)
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0.59387606, -101.933655)
