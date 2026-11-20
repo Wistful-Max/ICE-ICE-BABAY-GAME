@@ -80,5 +80,6 @@ func hit(damage: int):
 		hp -= damage
 		hp = max(hp, 0)
 		Animation_player.play("idle_2")
+		$Rembot_NPC/Sprite3D/SubViewport/Npc_walker_healthbar.value = hp
 	print("waow " + str(hp))
 	
