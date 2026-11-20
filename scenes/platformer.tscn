@@ -16,19 +16,57 @@ navigation_mesh = SubResource("NavigationMesh_npsrk")
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1602088810]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=654313597]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9244385, 0, -0.086761475)
-size = Vector3(18.04663, 1, 13.90863)
+[node name="floor" type="CSGBox3D" parent="CSGCombiner3D" unique_id=654313597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7983398, 0, -0.086761475)
+size = Vector3(27.492188, 1, 13.90863)
 material = SubResource("StandardMaterial3D_duchk")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1104268801]
+[node name="platform1" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1104268801]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9936218, 1.577045, -2.7876225)
 size = Vector3(2.5476685, 0.42871094, 2.1466942)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=754684554]
+[node name="platform2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=754684554]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9936218, 2.3385026, 0.327116)
+size = Vector3(2.5476685, 0.42871094, 2.1466942)
+
+[node name="platform3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1743729930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9936218, 3.3385026, 3.327116)
+size = Vector3(2.5476685, 0.42871094, 2.1466942)
+
+[node name="platform4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=2143444469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9936218, 4.338503, 6.327116)
 size = Vector3(2.5476685, 0.42871094, 2.1466942)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1438205658]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.006, 0.4, 3.11)
 size = Vector3(2.5476685, 0.42871094, 2.1466942)
+
+[node name="roof" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1123476562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.964844, 5.425327, -0.17352295)
+size = Vector3(10, 1, 13.90863)
+material = SubResource("StandardMaterial3D_duchk")
+
+[node name="platform" type="CSGBox3D" parent="CSGCombiner3D" unique_id=841896311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.964844, 5.425327, 5.280792)
+size = Vector3(2, 1, 1)
+material = SubResource("StandardMaterial3D_duchk")
+
+[node name="ramp" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1684910385]
+transform = Transform3D(1, 0, 0, 0, 0.86602545, 0.5000001, 0, -0.5000001, 0.86602545, 16.964844, 2.7410624, 0.15893441)
+size = Vector3(2, 1, 12)
+material = SubResource("StandardMaterial3D_duchk")
+
+[node name="wall1" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1423074262]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12.342773, 5.425327, -6.494786)
+size = Vector3(14, 1, 13.90863)
+material = SubResource("StandardMaterial3D_duchk")
+
+[node name="wall2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=389328353]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12.653809, 5.425327, 6.3194118)
+size = Vector3(13.37793, 1, 13.90863)
+material = SubResource("StandardMaterial3D_duchk")
+
+[node name="wall3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1612721664]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 18.653809, 5.425327, 0.31941175)
+size = Vector3(13.37793, 1, 13.90863)
+material = SubResource("StandardMaterial3D_duchk")

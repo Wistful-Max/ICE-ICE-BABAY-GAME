@@ -71,6 +71,7 @@ transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.9781735, 0.048863083, 4.275
 texture = SubResource("ViewportTexture_wp0k4")
 
 [node name="platformer" parent="." unique_id=1993212116 instance=ExtResource("1_elqb8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008108139, 1.9073486e-06, -0.03591156)
 
 [node name="Npc_walker" parent="." unique_id=1579878326 node_paths=PackedStringArray("walk_pathNPC") instance=ExtResource("11_wp0k4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.597496, 0.49186063, 0.4255042)
