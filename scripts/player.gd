@@ -28,6 +28,8 @@ var can_shoot = true
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	_lower_weapon()
+	_raise_weapon(weapons.PISTOLS)
 
 
 func _physics_process(delta: float) -> void:
