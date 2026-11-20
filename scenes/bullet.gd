@@ -15,6 +15,8 @@ func _ready():
 func _process(delta: float) -> void:
 	position += transform.basis * Vector3(0, 0, -SPEED) * delta
 	if raycast.is_colliding():
+		if raycast.get_collider().has_method("hit"):
+			raycast.get_collider().hit(20)
 		mesh.visible = false
 		particles.emitting = true
 		await get_tree().create_timer(1.0).timeout

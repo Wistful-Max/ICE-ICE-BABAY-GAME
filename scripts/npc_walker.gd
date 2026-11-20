@@ -43,7 +43,6 @@ func _physics_process(delta: float) -> void:
 			velocity.z = new_velocity.z
 			var next_point:Vector3 = Vector3(next_path_poth.x,global_position.y,next_path_poth.z)
 			#so the npc turnes and dont look weird
-			print(Vector3(global_position - next_point).length())
 			if not Vector3(global_position - next_point).length() < 0.05:
 				look_at(next_point)
 				rotate_y(PI)
@@ -74,3 +73,10 @@ func next_state() -> void:
 func new_target():
 	current_place = walk_pathNPC.pick_random()
 	NPCnav_3d.target_position = current_place.global_position
+
+func hit(damage: int):
+	if hp > 0:
+		hp -= damage
+		hp = max(hp, 0)
+	print("waow " + str(hp))
+	

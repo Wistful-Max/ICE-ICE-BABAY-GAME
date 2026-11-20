@@ -43,7 +43,7 @@ _data = {
 [node name="gunplakeholder" unique_id=1625825733 instance=ExtResource("1_aliq8")]
 transform = Transform3D(-4.371138e-08, 0, 0.9999998, 0, 1, 0, -0.9999998, 0, -4.371138e-08, 0, 0, 0)
 
-[node name="Object_4" parent="." index="0" unique_id=1988186863]
+[node name="Object_4" parent="." index="0" unique_id=795023288]
 cast_shadow = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=311129976]
