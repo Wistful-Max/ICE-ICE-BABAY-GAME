@@ -6,6 +6,8 @@ const SPEED = 40.0
 @onready var raycast = $RayCast3D
 @onready var particles: GPUParticles3D = $GPUParticles3D
 
+@export var damage: int = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -16,7 +18,7 @@ func _process(delta: float) -> void:
 	position += transform.basis * Vector3(0, 0, -SPEED) * delta
 	if raycast.is_colliding():
 		if raycast.get_collider().has_method("hit"):
-			raycast.get_collider().hit(20)
+			raycast.get_collider().hit(damage)
 		mesh.visible = false
 		particles.emitting = true
 		await get_tree().create_timer(1.0).timeout
