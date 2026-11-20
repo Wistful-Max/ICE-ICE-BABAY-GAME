@@ -48,7 +48,6 @@ func _physics_process(delta: float) -> void:
 				look_at(next_point)
 				rotate_y(PI)
 			else:
-				print("Hester.")
 				_set_state(NPCStates.IDLE)
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -61,6 +60,10 @@ func _on_idle_timer_timeout() -> void:
 	print("Hester.")
 	print("Hester.")
 	print("Hester.")
+	print("Hester.")
+	print("Hester.")
+	print("Hester.")
+	
 	
 func next_state() -> void:
 	# only if alredy idle 
