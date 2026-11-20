@@ -5093,7 +5093,6 @@ transparent_bg = true
 size = Vector2i(200, 200)
 
 [node name="Npc_walker_healthbar" type="ProgressBar" parent="Rembot_NPC/Sprite3D/SubViewport" unique_id=2040358347]
-modulate = Color(0, 10.630838, 0, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
