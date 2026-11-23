@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c1xrcakf5lml3" path="res://textures/skybox/skybox_up.bmp" id="8_lhr70"]
 [ext_resource type="Texture2D" uid="uid://ooleu4eprupu" path="res://textures/skybox/skybox_right.bmp" id="8_mwfav"]
 [ext_resource type="Texture2D" uid="uid://bo3brhseq8l1v" path="res://textures/skybox/skybox_left.bmp" id="9_3p2gp"]
-[ext_resource type="Script" path="res://scenes/rifle.gd" id="10_bjd11"]
+[ext_resource type="Script" uid="uid://dp1u55llen50n" path="res://scripts/rifle.gd" id="10_bjd11"]
 [ext_resource type="PackedScene" uid="uid://dyi6vdwihyg6b" path="res://scenes/Bad_Guy/npc_walker.tscn" id="11_wp0k4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rarhs"]
