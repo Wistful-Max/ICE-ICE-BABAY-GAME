@@ -8,7 +8,7 @@ const DECELERATION = 1.0
 
 var hp:int = 100
 
-var equiped = 2
+var equiped = 1
 
 var bullet = load("res://scenes/bullet.tscn")
 var bullet_trail = load("res://scenes/bullet_trail.tscn")
