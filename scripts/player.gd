@@ -64,7 +64,9 @@ func _physics_process(delta: float) -> void:
 		can_shoot = false
 		match weapon:
 			weapons.AUTO:
-				pass
+				auto_anim.play("reload")
+				rifle_ammo = rifle_max
+				can_shoot = true
 			weapons.PISTOLS:
 				gun_anim.play("reload")
 				pistol_ammo = pistol_max
