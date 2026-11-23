@@ -8,6 +8,10 @@ const DECELERATION = 1.0
 
 var hp:int = 100
 
+var equiped = 1
+var pistol_max = 6
+var pistol_ammo = 6
+
 var bullet = load("res://scenes/bullet.tscn")
 var bullet_trail = load("res://scenes/bullet_trail.tscn")
 var instance
@@ -54,16 +58,28 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECELERATION)
 		velocity.z = move_toward(velocity.z, 0, DECELERATION)
-	if Input.is_action_just_pressed("shoot") and can_shoot:
+	if Input.is_action_just_pressed("reload"):
+		can_shoot = false
 		match weapon:
 			weapons.AUTO:
-				_shoot_auto()
+				pass
 			weapons.PISTOLS:
-				_shoot_pistols()
+				gun_anim.play("reload")
+				pistol_ammo = pistol_max
+				can_shoot = true
+	
+	
+	if Input.is_action_pressed("shoot") and can_shoot and equiped == 2:
+		_shoot_auto()
+	if Input.is_action_just_pressed("shoot") and can_shoot and equiped == 1 and pistol_ammo >= 1:
+		_shoot_pistols()
+		
 	if Input.is_action_just_pressed("weapon_one") and weapon != weapons.AUTO:
 		_raise_weapon(weapons.AUTO)
+		equiped = 2
 	if Input.is_action_just_pressed("weapon_two") and weapon != weapons.PISTOLS:
 		_raise_weapon(weapons.PISTOLS)
+		equiped = 1
 
 	move_and_slide()
 
@@ -82,6 +98,7 @@ func hit(damage: int):
 func _shoot_pistols():
 	if !gun_anim.is_playing():
 		gun_anim.play("fire")
+		pistol_ammo -= 1
 		instance = bullet.instantiate()
 		instance.damage = 20
 		instance.position = gun_barrel.global_position
