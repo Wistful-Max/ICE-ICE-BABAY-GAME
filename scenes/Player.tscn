@@ -91,7 +91,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 [node name="MuzzleFlash" parent="Camera3D/rifle" index="0" unique_id=1216595498]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 1.1380136, 0.046015397, 4.974416e-08)
 
-[node name="Object_4" parent="Camera3D/rifle" index="1" unique_id=1284586501]
+[node name="Object_4" parent="Camera3D/rifle" index="1" unique_id=1988186863]
 transform = Transform3D(3.962238, 0, -1.1723955e-13, 0, 1, 0, 4.2632564e-13, 0, 0.9999976, 0.65917206, -0.15523207, 0.23296334)
 
 [node name="gunplakeholder" parent="Camera3D" unique_id=544573260 instance=ExtResource("2_v6fml")]
@@ -133,20 +133,20 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_3li8b")
 
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=86412693]
-target_position = Vector3(0, 0, -50)
-collide_with_areas = true
-
-[node name="aimrayend" type="Node3D" parent="Camera3D" unique_id=148568449]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -51.5)
-
 [node name="AmmoCount" type="Label" parent="Camera3D/Sprite3D/SubViewport" unique_id=1294101809]
 offset_left = 1750.0
 offset_top = 990.05
 offset_right = 1850.0
 offset_bottom = 1090.0496
 scale = Vector2(4.87, 4.87)
-text = "10"
+text = "6"
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=86412693]
+target_position = Vector3(0, 0, -50)
+collide_with_areas = true
+
+[node name="aimrayend" type="Node3D" parent="Camera3D" unique_id=148568449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -51.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1913411548]
 libraries/ = SubResource("AnimationLibrary_70d11")

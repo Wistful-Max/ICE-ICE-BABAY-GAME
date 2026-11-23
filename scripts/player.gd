@@ -11,6 +11,8 @@ var hp:int = 100
 var equiped = 1
 var pistol_max = 6
 var pistol_ammo = 6
+var rifle_ammo = 20 
+var rifle_max = 20
 
 var bullet = load("res://scenes/bullet.tscn")
 var bullet_trail = load("res://scenes/bullet_trail.tscn")
@@ -66,10 +68,13 @@ func _physics_process(delta: float) -> void:
 			weapons.PISTOLS:
 				gun_anim.play("reload")
 				pistol_ammo = pistol_max
+				$Camera3D/Sprite3D/SubViewport/AmmoCount.text = str(pistol_ammo)
 				can_shoot = true
-	
-	
-	if Input.is_action_pressed("shoot") and can_shoot and equiped == 2:
+	if Input.is_action_pressed("inspect"):
+		gun_anim.play("inspect")
+	if Input.is_action_pressed("spin"):
+		gun_anim.play("spin")
+	if Input.is_action_pressed("shoot") and can_shoot and equiped == 2 and rifle_ammo >= 1:
 		_shoot_auto()
 	if Input.is_action_just_pressed("shoot") and can_shoot and equiped == 1 and pistol_ammo >= 1:
 		_shoot_pistols()
@@ -99,6 +104,7 @@ func _shoot_pistols():
 	if !gun_anim.is_playing():
 		gun_anim.play("fire")
 		pistol_ammo -= 1
+		$Camera3D/Sprite3D/SubViewport/AmmoCount.text = str(pistol_ammo)
 		instance = bullet.instantiate()
 		instance.damage = 20
 		instance.position = gun_barrel.global_position
@@ -109,6 +115,7 @@ func _shoot_pistols():
 func _shoot_auto():
 	if !auto_anim.is_playing():
 		auto_anim.play("shoot")
+		rifle_ammo -= 1
 		instance = bullet_trail.instantiate()
 		if aim_ray.is_colliding():
 			instance.init(auto_barrel.global_position, aim_ray.get_collision_point())
