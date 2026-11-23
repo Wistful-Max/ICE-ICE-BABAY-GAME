@@ -45,7 +45,7 @@ shadow_enabled = true
 [node name="walk_points" type="Node" parent="." unique_id=394204513]
 
 [node name="mark1" type="Marker3D" parent="walk_points" unique_id=338558127]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.208707, 0.41730893, -4.6775384)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.315511, 0.41730893, -4.6775384)
 
 [node name="mark2" type="Marker3D" parent="walk_points" unique_id=1642812446]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.356512, 0.54317236, 0.35225546)
@@ -62,14 +62,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53467655, 0.9237089)
 [node name="mark6" type="Marker3D" parent="walk_points" unique_id=1883166772]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53467655, -3.1485577)
 
+[node name="mark7" type="Marker3D" parent="walk_points" unique_id=824990139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.065985, 0.6507106, -4.111555)
+
+[node name="mark8" type="Marker3D" parent="walk_points" unique_id=2081229165]
+transform = Transform3D(0.99979025, 0.02048191, 0, -0.02048191, 0.99979025, 0, 0, 0, 1, 17.96533, 5.203247, 3.1202874)
+
+[node name="mark9" type="Marker3D" parent="walk_points" unique_id=1099413975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.793335, 6.2905464, 3.1202874)
+
 [node name="Player" parent="." unique_id=935475493 instance=ExtResource("2_rvslj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4969323, 0.49999952, 3.3468919)
 
 [node name="rifle" parent="Player/Camera3D" parent_id_path=PackedInt32Array(935475493, 544414845) index="0" unique_id=1625825733]
 script = ExtResource("10_bjd11")
 
-[node name="MuzzleFlash" parent="Player/Camera3D/rifle" index="0" unique_id=1216595498]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.9781735, 0.048863083, 4.2755754e-08)
+[node name="MuzzleFlash" parent="Player/Camera3D/rifle" parent_id_path=PackedInt32Array(935475493, 1625825733) index="0" unique_id=1216595498]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [node name="Barrel" parent="Player/Camera3D/rifle" index="3" unique_id=6085584]
 transform = Transform3D(0.99999917, 0, -3.907985e-14, 0, 1, 0, 3.907985e-14, 0, 0.99999917, 1.6447408, -0.10908866, 0.23181248)
@@ -78,11 +87,11 @@ transform = Transform3D(0.99999917, 0, -3.907985e-14, 0, 1, 0, 3.907985e-14, 0, 
 texture = SubResource("ViewportTexture_qmy6f")
 
 [node name="platformer" parent="." unique_id=1993212116 instance=ExtResource("1_elqb8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008108139, 1.9073486e-06, -0.03591156)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58304024, 0, -0.89969397)
 
 [node name="Npc_walker" parent="." unique_id=1579878326 node_paths=PackedStringArray("walk_pathNPC") instance=ExtResource("11_wp0k4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.597496, 0.49186063, 0.4255042)
-walk_pathNPC = [NodePath("../walk_points/mark1"), NodePath("../walk_points/mark2"), NodePath("../walk_points/mark3"), NodePath("../walk_points/mark4"), NodePath("../walk_points/mark5"), NodePath("../walk_points/mark6")]
+walk_pathNPC = [NodePath("../walk_points/mark7"), NodePath("../walk_points/mark8")]
 
 [editable path="Player"]
 [editable path="Player/Camera3D/rifle"]

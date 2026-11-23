@@ -29,8 +29,6 @@ var can_shoot = true
 @onready var auto_barrel: Node3D = $Camera3D/rifle/Barrel
 
 
-
-
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_lower_weapon()
@@ -79,14 +77,13 @@ func hit(damage: int):
 	if hp > 0:
 		hp -= damage
 		hp = max(hp, 0)
-func damage():
-	pass
 	
 	
 func _shoot_pistols():
 	if !gun_anim.is_playing():
 		gun_anim.play("fire")
 		instance = bullet.instantiate()
+		instance.damage = 20
 		instance.position = gun_barrel.global_position
 		instance.transform.basis = gun_barrel.global_transform.basis.rotated(gun_barrel.global_transform.basis * Vector3(0, -1, 0), PI/2)
 		get_parent().add_child(instance)

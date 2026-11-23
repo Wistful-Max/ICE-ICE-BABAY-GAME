@@ -10,7 +10,8 @@ extends CharacterBody3D
 
 enum  NPCStates {
 	IDLE,
-	walking
+	walking,
+	death
 }
 
 var current_states:NPCStates
@@ -31,6 +32,8 @@ func _set_state(new_state:NPCStates) -> void:
 			idle_timer.start(1.0 + randf())
 		NPCStates.walking:
 			Animation_player.play("forward")
+		NPCStates.death:
+			Animation_player.play("deadth")
 
 func _physics_process(delta: float) -> void:
 	match current_states:
@@ -49,6 +52,9 @@ func _physics_process(delta: float) -> void:
 				rotate_y(PI)
 			else:
 				_set_state(NPCStates.IDLE)
+		NPCStates.death:
+			velocity.x = 0
+			velocity.z = 0
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	move_and_slide()
@@ -74,12 +80,14 @@ func next_state() -> void:
 func new_target():
 	current_place = walk_pathNPC.pick_random()
 	NPCnav_3d.target_position = current_place.global_position
-
+ 
 func hit(damage: int):
-	if hp > 0:
-		hp -= damage
-		hp = max(hp, 0)
+	if current_states != NPCStates.death:
 		Animation_player.play("idle_2")
+		hp -= damage
+		if hp <= 0:
+			_set_state(NPCStates.death)
+			hp = 0
 		$Rembot_NPC/Sprite3D/SubViewport/Npc_walker_healthbar.value = hp
 	print("waow " + str(hp))
 	

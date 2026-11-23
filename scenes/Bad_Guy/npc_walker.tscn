@@ -110,6 +110,9 @@ bind/24/name = &"mixamorig_RightToe_End"
 bind/24/bone = -1
 bind/24/pose = Transform3D(-98.67555, 1.9948527, 16.108484, 16.12926, 0.92294824, 98.68638, 1.8197969, 99.97584, -1.2324456, -18.304262, -11.462248, 0.23805848)
 
+[sub_resource type="Animation" id="Animation_anjyt"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_6p1ji"]
 resource_name = "angry"
 length = 3.3
@@ -1357,6 +1360,17 @@ tracks/34/path = NodePath("NPC_MAN_FAT/Skeleton3D:mixamorig_RightToe_End")
 tracks/34/interp = 0
 tracks/34/loop_wrap = true
 tracks/34/keys = PackedFloat32Array(0, 1, -2.5058627e-05, 5.2491527, 1.2666226e-06)
+
+[sub_resource type="Animation" id="Animation_d8ija"]
+resource_name = "deadth"
+length = 0.46666667
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.43333334, 1, 0, 0, 0.70710677, 0.70710677)
 
 [sub_resource type="Animation" id="Animation_p3inr"]
 resource_name = "drunk-loop"
@@ -4854,11 +4868,13 @@ tracks/34/keys = PackedFloat32Array(0, 1, -1.9106083e-06, 5.249152, -7.599582e-0
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8l53y"]
 _data = {
+&"RESET": SubResource("Animation_anjyt"),
 &"angry": SubResource("Animation_6p1ji"),
 &"backward": SubResource("Animation_8ars8"),
 &"bored": SubResource("Animation_k80e4"),
 &"bow_1": SubResource("Animation_421wv"),
 &"carrying": SubResource("Animation_os82y"),
+&"deadth": SubResource("Animation_d8ija"),
 &"drunk": SubResource("Animation_p3inr"),
 &"dying_backward": SubResource("Animation_klhou"),
 &"forward": SubResource("Animation_db7vp"),
@@ -4883,6 +4899,7 @@ radius = 0.36376953
 height = 1.7668457
 
 [node name="Npc_walker" type="CharacterBody3D" unique_id=1579878326]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_anjyt")
 
 [node name="Rembot_NPC" type="Node3D" parent="." unique_id=701365571]
@@ -4891,6 +4908,7 @@ script = ExtResource("1_anjyt")
 transform = Transform3D(0.01, 0, 0, 0, -3.5762788e-09, -0.01, 0, 0.01, -3.5762788e-09, 0, 0, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Rembot_NPC/NPC_MAN_FAT" unique_id=1265186067]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999976, 0, 0, 0)
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0.59387606, -101.933655)
@@ -4936,7 +4954,7 @@ bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "mixamorig_HeadTop_End"
 bones/6/parent = 5
 bones/6/rest = Transform3D(1, 0, 0, 0, 1, -1.4210855e-14, 0, 1.4210855e-14, 1, 0, 19.015839, 4.806059)
-bones/6/enabled = true
+bones/6/enabled = false
 bones/6/position = Vector3(0, 19.015839, 4.806059)
 bones/6/rotation = Quaternion(7.1054274e-15, 0, 0, 1)
 bones/6/scale = Vector3(1, 1, 1)
