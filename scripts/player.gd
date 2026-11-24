@@ -140,6 +140,8 @@ func _shoot_auto():
 			instance.init(auto_barrel.global_position, aim_ray.get_collision_point())
 			get_parent().add_child(instance)
 			if aim_ray.get_collider().has_method("hit"):
+				if aim_ray.get_collider().name == "Npc_area_head":
+					print("ow! 🫪")
 				aim_ray.get_collider().hit(10)
 				instance.trigger_particles(aim_ray.get_collision_point(), auto_barrel.global_position, true)
 			else:
