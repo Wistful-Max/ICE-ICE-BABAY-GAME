@@ -33,6 +33,7 @@ var can_shoot = true
 @onready var aim_ray: RayCast3D = $Camera3D/RayCast3D
 @onready var aim_ray_end: Node3D = $Camera3D/aimrayend
 @onready var auto_barrel: Node3D = $Camera3D/rifle/Barrel
+@onready var ammo_count: Label = $Camera3D/Sprite3D/SubViewport/AmmoCount
 
 
 func _ready():
@@ -66,6 +67,7 @@ func _physics_process(delta: float) -> void:
 			weapons.AUTO:
 				auto_anim.play("reload")
 				rifle_ammo = rifle_max
+				ammo_count.text = str(rifle_ammo)
 				can_shoot = true
 			weapons.PISTOLS:
 				gun_anim.play("reload")
@@ -73,9 +75,17 @@ func _physics_process(delta: float) -> void:
 				$Camera3D/Sprite3D/SubViewport/AmmoCount.text = str(pistol_ammo)
 				can_shoot = true
 	if Input.is_action_pressed("inspect"):
-		gun_anim.play("inspect")
+		match weapon:
+			weapons.PISTOLS:
+				gun_anim.play("inspect")
+			weapons.AUTO:
+				pass
 	if Input.is_action_pressed("spin"):
-		gun_anim.play("spin")
+		match weapon:
+			weapons.PISTOLS:
+				gun_anim.play("spin")
+			weapons.AUTO:
+				pass
 	if Input.is_action_pressed("shoot") and can_shoot and equiped == 2 and rifle_ammo >= 1:
 		_shoot_auto()
 	if Input.is_action_just_pressed("shoot") and can_shoot and equiped == 1 and pistol_ammo >= 1:
@@ -84,9 +94,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("weapon_one") and weapon != weapons.AUTO:
 		_raise_weapon(weapons.AUTO)
 		equiped = 2
+		ammo_count.text = str(rifle_ammo)
+		$Camera3D/Sprite3D/SubViewport/revolver.visible = false
+		$Camera3D/Sprite3D/SubViewport/rifle.visible = true
 	if Input.is_action_just_pressed("weapon_two") and weapon != weapons.PISTOLS:
 		_raise_weapon(weapons.PISTOLS)
 		equiped = 1
+		ammo_count.text = str(pistol_ammo)
+		$Camera3D/Sprite3D/SubViewport/rifle.visible = false
+		$Camera3D/Sprite3D/SubViewport/revolver.visible = true
 
 	move_and_slide()
 
@@ -118,6 +134,7 @@ func _shoot_auto():
 	if !auto_anim.is_playing():
 		auto_anim.play("shoot")
 		rifle_ammo -= 1
+		ammo_count.text = str(rifle_ammo)
 		instance = bullet_trail.instantiate()
 		if aim_ray.is_colliding():
 			instance.init(auto_barrel.global_position, aim_ray.get_collision_point())

@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://wr66dkp8uhb6" path="res://scenes/rifle.tscn" id="2_mdl7e"]
 [ext_resource type="PackedScene" uid="uid://dss5ii5q58838" path="res://scenes/gunplakeholder.tscn" id="2_v6fml"]
 [ext_resource type="Texture2D" uid="uid://den7jyfrtdmk" path="res://textures/placeholders/placeholder_crosshair.png" id="3_3li8b"]
+[ext_resource type="Texture2D" uid="uid://p8xkyyawcidh" path="res://textures/HUD elements/rifle.png" id="5_qu4a1"]
+[ext_resource type="Texture2D" uid="uid://d0o78ggaahmgw" path="res://textures/HUD elements/revolver.png" id="6_70d11"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npsrk"]
 
@@ -140,6 +142,32 @@ offset_right = 1850.0
 offset_bottom = 1090.0496
 scale = Vector2(4.87, 4.87)
 text = "6"
+
+[node name="rifle" type="TextureRect" parent="Camera3D/Sprite3D/SubViewport" unique_id=1112650648]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -270.0
+offset_right = 500.0
+offset_bottom = -130.0
+grow_vertical = 0
+offset_transform_enabled = true
+texture = ExtResource("5_qu4a1")
+expand_mode = 1
+
+[node name="revolver" type="TextureRect" parent="Camera3D/Sprite3D/SubViewport" unique_id=1846927805]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -357.0
+offset_right = 500.0
+offset_bottom = -100.0
+grow_vertical = 0
+texture = ExtResource("6_70d11")
+expand_mode = 1
+stretch_mode = 4
+flip_h = true
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=86412693]
 target_position = Vector3(0, 0, -50)
