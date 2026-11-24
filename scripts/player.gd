@@ -34,7 +34,8 @@ var can_shoot = true
 @onready var aim_ray_end: Node3D = $Camera3D/aimrayend
 @onready var auto_barrel: Node3D = $Camera3D/rifle/Barrel
 @onready var ammo_count: Label = $Camera3D/Sprite3D/SubViewport/AmmoCount
-
+@onready var audio_stream_player: AudioStreamPlayer = $Camera3D/gunplakeholder/AudioStreamPlayer
+@onready var rifle_gunshot: AudioStreamPlayer = $Camera3D/rifle/AudioStreamPlayer
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -121,6 +122,7 @@ func hit(damage: int):
 func _shoot_pistols():
 	if !gun_anim.is_playing():
 		gun_anim.play("fire")
+		audio_stream_player.play()
 		pistol_ammo -= 1
 		$Camera3D/Sprite3D/SubViewport/AmmoCount.text = str(pistol_ammo)
 		instance = bullet.instantiate()
@@ -133,6 +135,7 @@ func _shoot_pistols():
 func _shoot_auto():
 	if !auto_anim.is_playing():
 		auto_anim.play("shoot")
+		rifle_gunshot.play()
 		rifle_ammo -= 1
 		ammo_count.text = str(rifle_ammo)
 		instance = bullet_trail.instantiate()
