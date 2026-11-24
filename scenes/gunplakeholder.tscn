@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dss5ii5q58838"]
 
 [ext_resource type="PackedScene" uid="uid://d2ex54j3mbsgw" path="res://models/gun.glb" id="1_aliq8"]
+[ext_resource type="AudioStream" uid="uid://u0qvyrrx7f55" path="res://sound/gunshot-sound.mp3" id="2_bayba"]
 
 [sub_resource type="Animation" id="Animation_aliq8"]
 length = 0.001
@@ -119,3 +120,7 @@ libraries/ = SubResource("AnimationLibrary_0t6o0")
 [node name="RayCast3D" type="RayCast3D" parent="." index="2" unique_id=748873240]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24822477, 0.04595437, 0)
 target_position = Vector3(1, 0, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3" unique_id=1664515545]
+stream = ExtResource("2_bayba")
+autoplay = true
