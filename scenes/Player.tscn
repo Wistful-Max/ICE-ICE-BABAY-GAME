@@ -4,8 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://wr66dkp8uhb6" path="res://scenes/rifle.tscn" id="2_mdl7e"]
 [ext_resource type="PackedScene" uid="uid://dss5ii5q58838" path="res://scenes/gunplakeholder.tscn" id="2_v6fml"]
 [ext_resource type="Texture2D" uid="uid://den7jyfrtdmk" path="res://textures/placeholders/placeholder_crosshair.png" id="3_3li8b"]
+[ext_resource type="Texture2D" uid="uid://b0bdlt7ieok5h" path="res://textures/HUD elements/Hp_Icecon/health_100.png" id="4_6eyey"]
+[ext_resource type="Texture2D" uid="uid://dtk6wmw228var" path="res://textures/HUD elements/Hp_Icecon/health_75.png" id="5_d3wef"]
 [ext_resource type="Texture2D" uid="uid://p8xkyyawcidh" path="res://textures/HUD elements/rifle.png" id="5_qu4a1"]
 [ext_resource type="Texture2D" uid="uid://d0o78ggaahmgw" path="res://textures/HUD elements/revolver.png" id="6_70d11"]
+[ext_resource type="Texture2D" uid="uid://c8e0qu6brag5s" path="res://textures/HUD elements/Hp_Icecon/health_50.png" id="6_o4126"]
+[ext_resource type="Texture2D" uid="uid://7foj4c6mptdn" path="res://textures/HUD elements/Hp_Icecon/health_25.png" id="7_lkdrv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npsrk"]
 
@@ -93,7 +97,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 [node name="MuzzleFlash" parent="Camera3D/rifle" index="0" unique_id=1216595498]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 1.1380136, 0.046015397, 4.974416e-08)
 
-[node name="Object_4" parent="Camera3D/rifle" index="1" unique_id=1988186863]
+[node name="Object_4" parent="Camera3D/rifle" index="1" unique_id=1284586501]
 transform = Transform3D(3.962238, 0, -1.1723955e-13, 0, 1, 0, 4.2632564e-13, 0, 0.9999976, 0.65917206, -0.15523207, 0.23296334)
 
 [node name="gunplakeholder" parent="Camera3D" unique_id=544573260 instance=ExtResource("2_v6fml")]
@@ -109,6 +113,7 @@ transparent_bg = true
 size = Vector2i(1920, 1080)
 
 [node name="PlayerHealthBar" type="ProgressBar" parent="Camera3D/Sprite3D/SubViewport" unique_id=685387198]
+visible = false
 modulate = Color(1, 0, 0, 1)
 anchors_preset = 2
 anchor_top = 1.0
@@ -116,7 +121,51 @@ anchor_bottom = 1.0
 offset_top = -100.0
 offset_right = 500.0
 grow_vertical = 0
-value = 50.0
+value = 100.0
+
+[node name="25hp" type="TextureRect" parent="Camera3D/Sprite3D/SubViewport" unique_id=1644429114]
+visible = false
+offset_left = 4.62
+offset_top = 964.78
+offset_right = 306.26
+offset_bottom = 1264.7808
+scale = Vector2(0.76, 0.76)
+texture = ExtResource("7_lkdrv")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="50hp" type="TextureRect" parent="Camera3D/Sprite3D/SubViewport" unique_id=17015712]
+visible = false
+offset_left = 35.31
+offset_top = 767.0
+offset_right = 335.31
+offset_bottom = 1067.0001
+texture = ExtResource("6_o4126")
+expand_mode = 1
+
+[node name="75hp" type="TextureRect" parent="Camera3D/Sprite3D/SubViewport" unique_id=803021353]
+visible = false
+offset_left = 33.33
+offset_top = 796.87
+offset_right = 329.19
+offset_bottom = 1096.8718
+scale = Vector2(0.76, 0.76)
+texture = ExtResource("5_d3wef")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="100hp" type="TextureRect" parent="Camera3D/Sprite3D/SubViewport" unique_id=1083557704]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -360.68
+offset_right = 300.0
+offset_bottom = -60.680725
+grow_vertical = 0
+scale = Vector2(0.76, 0.76)
+texture = ExtResource("4_6eyey")
+expand_mode = 1
+stretch_mode = 2
 
 [node name="Crosshair" type="TextureRect" parent="Camera3D/Sprite3D/SubViewport" unique_id=1215277478]
 anchors_preset = 8
@@ -145,24 +194,31 @@ text = "6"
 
 [node name="rifle" type="TextureRect" parent="Camera3D/Sprite3D/SubViewport" unique_id=1112650648]
 visible = false
-anchors_preset = 2
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -270.0
-offset_right = 500.0
-offset_bottom = -130.0
+offset_left = -500.0
+offset_top = -230.0
+offset_bottom = -90.0
+grow_horizontal = 0
 grow_vertical = 0
 offset_transform_enabled = true
 texture = ExtResource("5_qu4a1")
 expand_mode = 1
 
 [node name="revolver" type="TextureRect" parent="Camera3D/Sprite3D/SubViewport" unique_id=1846927805]
-anchors_preset = 2
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -357.0
-offset_right = 500.0
-offset_bottom = -100.0
+offset_left = -520.0
+offset_top = -253.65002
+offset_right = -20.0
+offset_bottom = 3.3493652
+grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("6_70d11")
 expand_mode = 1

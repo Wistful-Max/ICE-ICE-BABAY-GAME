@@ -117,6 +117,15 @@ func hit(damage: int):
 		hp -= damage
 		hp = max(hp, 0)
 	
+	if hp <= 25:
+		$"Camera3D/Sprite3D/SubViewport/25hp".visible = true
+		$"Camera3D/Sprite3D/SubViewport/50hp".visible = false
+	elif hp <= 50:
+		$"Camera3D/Sprite3D/SubViewport/50hp".visible = true
+		$"Camera3D/Sprite3D/SubViewport/75hp".visible = false
+	elif hp <= 75:
+		$"Camera3D/Sprite3D/SubViewport/75hp".visible = true
+		$"Camera3D/Sprite3D/SubViewport/100hp".visible = false
 	
 func _shoot_pistols():
 	if !gun_anim.is_playing():
