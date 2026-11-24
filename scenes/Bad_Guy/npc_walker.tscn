@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dyi6vdwihyg6b"]
 
 [ext_resource type="Script" uid="uid://c045e1462c6fd" path="res://scripts/npc_walker.gd" id="1_anjyt"]
+[ext_resource type="Script" uid="uid://k1ft0jfc0i81" path="res://scripts/npc_area_head.gd" id="2_d8ija"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_caet0"]
 resource_name = "Material.002"
@@ -4896,7 +4897,10 @@ viewport_path = NodePath("Rembot_NPC/Sprite3D/SubViewport")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_duchk"]
 radius = 0.36376953
-height = 1.7668457
+height = 1.5113525
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5yci5"]
+radius = 0.20263365
 
 [node name="Npc_walker" type="CharacterBody3D" unique_id=1579878326]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
@@ -5102,7 +5106,7 @@ libraries/ = SubResource("AnimationLibrary_8l53y")
 autoplay = &"idle_1"
 
 [node name="Sprite3D" type="Sprite3D" parent="Rembot_NPC" unique_id=657510274]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9866395, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9866396, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_mqwlp")
 
@@ -5125,8 +5129,15 @@ grow_vertical = 2
 value = 100.0
 
 [node name="Npc_hitbox" type="CollisionShape3D" parent="." unique_id=728488318]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.895874, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7681276, 0)
 shape = SubResource("CapsuleShape3D_duchk")
+
+[node name="Npc_area_head" type="Area3D" parent="." unique_id=173148005]
+script = ExtResource("2_d8ija")
+
+[node name="Npc_hitbox_head" type="CollisionShape3D" parent="Npc_area_head" unique_id=92769938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7241799, 0)
+shape = SubResource("SphereShape3D_5yci5")
 
 [node name="Idle_Timer" type="Timer" parent="." unique_id=2080459413]
 one_shot = true
