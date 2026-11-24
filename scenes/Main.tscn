@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ooleu4eprupu" path="res://textures/skybox/skybox_right.bmp" id="8_mwfav"]
 [ext_resource type="Texture2D" uid="uid://bo3brhseq8l1v" path="res://textures/skybox/skybox_left.bmp" id="9_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://dyi6vdwihyg6b" path="res://scenes/Bad_Guy/npc_walker.tscn" id="11_wp0k4"]
+[ext_resource type="PackedScene" uid="uid://cwcju0a035wcb" path="res://scenes/npc_hostile.tscn" id="12_bjd11"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rarhs"]
 shader = ExtResource("4_lhr70")
@@ -28,7 +29,7 @@ sky_material = SubResource("ShaderMaterial_rarhs")
 background_mode = 2
 sky = SubResource("Sky_0bbpv")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wp0k4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bjd11"]
 viewport_path = NodePath("Camera3D/Sprite3D/SubViewport")
 
 [node name="Main" type="Node" unique_id=752661096]
@@ -62,13 +63,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53467655, 0.9237089)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53467655, -3.1485577)
 
 [node name="mark7" type="Marker3D" parent="walk_points" unique_id=824990139]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.065985, 0.6507106, -4.111555)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.79932, 0.6507106, -7.0058894)
 
 [node name="mark8" type="Marker3D" parent="walk_points" unique_id=2081229165]
 transform = Transform3D(0.99979025, 0.02048191, 0, -0.02048191, 0.99979025, 0, 0, 0, 1, 17.96533, 5.203247, 3.1202874)
 
 [node name="mark9" type="Marker3D" parent="walk_points" unique_id=1099413975]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.793335, 6.2905464, 3.1202874)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.793335, 6.2905464, 2.2241993)
 
 [node name="Player" parent="." unique_id=935475493 instance=ExtResource("2_rvslj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4969323, 0.49999952, 3.3468919)
@@ -80,17 +81,21 @@ transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 transform = Transform3D(0.99999917, 0, -3.907985e-14, 0, 1, 0, 3.907985e-14, 0, 0.99999917, 1.6447408, -0.10908866, 0.23181248)
 
 [node name="Sprite3D" parent="Player/Camera3D" parent_id_path=PackedInt32Array(935475493, 544414845) index="2" unique_id=221479811]
-texture = SubResource("ViewportTexture_wp0k4")
+texture = SubResource("ViewportTexture_bjd11")
 
 [node name="aimrayend" parent="Player/Camera3D" parent_id_path=PackedInt32Array(935475493, 544414845) index="4" unique_id=148568449]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0061792135, 0, -50.010498)
 
 [node name="platformer" parent="." unique_id=1993212116 instance=ExtResource("1_elqb8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58304024, 0, -0.89969397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5562477, -0.02670288, -0.90796137)
 
 [node name="Npc_walker" parent="." unique_id=1579878326 node_paths=PackedStringArray("walk_pathNPC") instance=ExtResource("11_wp0k4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.597496, 0.49186063, 0.4255042)
-walk_pathNPC = [NodePath("../walk_points/mark7"), NodePath("../walk_points/mark8")]
+walk_pathNPC = [NodePath("../walk_points/mark1"), NodePath("../walk_points/mark2"), NodePath("../walk_points/mark3"), NodePath("../walk_points/mark4"), NodePath("../walk_points/mark5"), NodePath("../walk_points/mark6"), NodePath("../walk_points/mark7"), NodePath("../walk_points/mark8"), NodePath("../walk_points/mark9")]
+
+[node name="Npc_hostile" parent="." unique_id=1265114573 node_paths=PackedStringArray("walk_pathNPC") instance=ExtResource("12_bjd11")]
+transform = Transform3D(1, 0, 0, 0, 0.7956433, -0.6057653, 0, 0.6057652, 0.7956434, -10.428558, 0.50190085, -6.6409063)
+walk_pathNPC = [NodePath("../walk_points/mark7"), NodePath("../walk_points/mark8"), NodePath("../walk_points/mark9")]
 
 [editable path="Player"]
 [editable path="Player/Camera3D/rifle"]

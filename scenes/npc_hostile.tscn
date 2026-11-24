@@ -4907,10 +4907,10 @@ script = ExtResource("1_dq3an")
 
 [node name="Rembot_NPC" type="Node3D" parent="." unique_id=701365571]
 
-[node name="NPC_MAN_skinny" type="Node3D" parent="Rembot_NPC" unique_id=2134462376]
+[node name="NPC_MAN_FAT" type="Node3D" parent="Rembot_NPC" unique_id=2134462376]
 transform = Transform3D(0.01, 0, 0, 0, -3.5762788e-09, -0.01, 0, 0.01, -3.5762788e-09, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Rembot_NPC/NPC_MAN_skinny" unique_id=1265186067]
+[node name="Skeleton3D" type="Skeleton3D" parent="Rembot_NPC/NPC_MAN_FAT" unique_id=1265186067]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999976, 0, 0, 0)
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
@@ -5088,7 +5088,7 @@ bones/24/position = Vector3(-2.276478e-05, 5.24915, 1.3858298e-06)
 bones/24/rotation = Quaternion(-5.436595e-08, 4.95289e-07, 1.0061921e-07, 1)
 bones/24/scale = Vector3(1, 1.0000001, 1)
 
-[node name="humanoid" type="MeshInstance3D" parent="Rembot_NPC/NPC_MAN_skinny/Skeleton3D" unique_id=1564818334]
+[node name="humanoid" type="MeshInstance3D" parent="Rembot_NPC/NPC_MAN_FAT/Skeleton3D" unique_id=1564818334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_0g50c")
 mesh = SubResource("ArrayMesh_4bgi7")
@@ -5130,7 +5130,7 @@ grow_vertical = 2
 value = 100.0
 
 [node name="Npc_hitbox" type="CollisionShape3D" parent="." unique_id=728488318]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.895874, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8958741, 0)
 shape = SubResource("CapsuleShape3D_duchk")
 
 [node name="Idle_Timer" type="Timer" parent="." unique_id=2080459413]

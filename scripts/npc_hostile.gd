@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var walk_pathNPC:Array[Marker3D]
 
-@export 
+@onready var Player = $"../Player"
 
 @onready var NPCnav_3d:NavigationAgent3D = $NavigationAgent3D
 @onready var idle_timer: Timer =$Idle_Timer
@@ -12,7 +12,8 @@ extends CharacterBody3D
 enum  NPCStates {
 	IDLE,
 	walking,
-	death
+	death,
+	jump
 }
 
 var current_states:NPCStates
@@ -35,14 +36,16 @@ func _set_state(new_state:NPCStates) -> void:
 			Animation_player.play("forward")
 		NPCStates.death:
 			Animation_player.play("deadth")
+		NPCStates.jump:
+			velocity.y = 3
+			_set_state(NPCStates.walking)
 
 func _physics_process(delta: float) -> void:
 	match current_states:
 		NPCStates.IDLE:
-			look_at(player)
+			look_at(Player.position)
 			velocity.x = 0
 			velocity.z = 0
-			
 		NPCStates.walking:
 			var next_path_poth:Vector3 = NPCnav_3d.get_next_path_position()
 			var new_velocity:Vector3 = global_position.direction_to(next_path_poth) * SPEED
@@ -55,12 +58,24 @@ func _physics_process(delta: float) -> void:
 				rotate_y(PI)
 			else:
 				_set_state(NPCStates.IDLE)
+			if velocity.z <= 1.4 && velocity.x <= 1.4 && is_on_floor():
+				_set_state(NPCStates.jump)
+				print("hester!!")
+			else:
+					print(velocity.x)
+				
+		
+		
+		
+		
+		
 		NPCStates.death:
 			velocity.x = 0
 			velocity.z = 0
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	move_and_slide()
+	
 				
 func _on_idle_timer_timeout() -> void:
 	next_state()
