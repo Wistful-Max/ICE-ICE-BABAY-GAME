@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@onready var crosshair: TextureRect = $Camera3D/Sprite3D/SubViewport/Crosshair
+@onready var zoomcross: TextureRect = $Camera3D/Sprite3D/SubViewport/zoomcross
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 5.0
@@ -98,8 +100,13 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_pressed("zoom"):
 		camera.fov = lerp(camera.fov, fview["ADS"], ADS_LERP * delta)
+		zoomcross.visible = true
+		crosshair.visible = false
 	else:
 		camera.fov = lerp(camera.fov, fview["Default"], ADS_LERP * delta)
+		zoomcross.visible = false
+		crosshair.visible = true
+		
 	
 	if Input.is_action_just_pressed("weapon_one") and weapon != weapons.AUTO:
 		_raise_weapon(weapons.AUTO)
