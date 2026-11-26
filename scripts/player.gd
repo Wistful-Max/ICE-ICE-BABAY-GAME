@@ -13,10 +13,12 @@ var pistol_max = 6
 var pistol_ammo = 6
 var rifle_ammo = 20 
 var rifle_max = 20
+var ADS_LERP = 20
 
 var bullet = load("res://scenes/bullet.tscn")
 var bullet_trail = load("res://scenes/bullet_trail.tscn")
 var instance
+var fview = {"Default": 75.0, "ADS": 30.0}
 
 enum weapons {
 	AUTO,
@@ -26,7 +28,7 @@ enum weapons {
 var weapon = weapons.AUTO
 var can_shoot = true
 @onready var weapon_switching = $AnimationPlayer
-
+@onready var camera: Camera3D = $Camera3D
 @onready var gun_anim: AnimationPlayer = $Camera3D/gunplakeholder/AnimationPlayer
 @onready var gun_barrel: RayCast3D = $Camera3D/gunplakeholder/RayCast3D
 @onready var auto_anim: AnimationPlayer = $Camera3D/rifle/AnimationPlayer
@@ -37,10 +39,12 @@ var can_shoot = true
 @onready var audio_stream_player: AudioStreamPlayer = $Camera3D/gunplakeholder/AudioStreamPlayer
 @onready var rifle_gunshot: AudioStreamPlayer = $Camera3D/rifle/AudioStreamPlayer
 
+
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_lower_weapon()
 	_raise_weapon(weapons.PISTOLS)
+
 
 
 func _physics_process(delta: float) -> void:
@@ -92,6 +96,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot") and can_shoot and equiped == 1 and pistol_ammo >= 1:
 		_shoot_pistols()
 		
+	if Input.is_action_pressed("zoom"):
+		camera.fov = lerp(camera.fov, fview["ADS"], ADS_LERP * delta)
+	else:
+		camera.fov = lerp(camera.fov, fview["Default"], ADS_LERP * delta)
+	
 	if Input.is_action_just_pressed("weapon_one") and weapon != weapons.AUTO:
 		_raise_weapon(weapons.AUTO)
 		equiped = 2
