@@ -102,5 +102,4 @@ walk_pathNPC = [NodePath("../walk_points/mark7"), NodePath("../walk_points/mark8
 
 [editable path="Player"]
 [editable path="Player/Camera3D/rifle"]
-[editable path="Player/Camera3D/rifle/m16"]
 [editable path="Player/Camera3D/gunplakeholder"]

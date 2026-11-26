@@ -113,10 +113,17 @@ func _input(event: InputEvent) -> void:
 		$Camera3D.rotate_x(-event.relative.y * 0.01)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(89), deg_to_rad(89))
 
+func game_over():
+	print("Hester. 🐎🐎🐎🐎🐎🐎🐎🐎🐎🐎")
+	$Camera3D/Sprite3D/BlackScreen.visible = true
+	$Camera3D/Sprite3D/SubViewport/GameOver.visible = true
+	
 func hit(damage: int):
 	if hp > 0:
 		hp -= damage
 		hp = max(hp, 0)
+		if hp <= 0:
+			game_over()
 	
 	if hp <= 25:
 		$"Camera3D/Sprite3D/SubViewport/25hp".visible = true

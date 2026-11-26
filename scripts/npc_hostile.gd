@@ -1,14 +1,19 @@
 extends CharacterBody3D
 
+var bullet = load("res://scenes/bullet.tscn")
+
+var can_shoot = true
+
 @export var walk_pathNPC:Array[Marker3D]
 
 @onready var Player = $"../Player"
+@onready var start: Node3D = $START
 
 @onready var NPCnav_3d:NavigationAgent3D = $NavigationAgent3D
 @onready var idle_timer: Timer =$Idle_Timer
-
+@onready var cooldown: Timer = $cooldown
 @onready var Animation_player :AnimationPlayer =$Rembot_NPC/AnimationPlayer
-
+@onready var ray_ray: RayCast3D = $RayCast3D
 enum  NPCStates {
 	IDLE,
 	walking,
@@ -46,7 +51,9 @@ func _physics_process(delta: float) -> void:
 			look_at(Player.position)
 			velocity.x = 0
 			velocity.z = 0
+			see()
 		NPCStates.walking:
+			see()
 			var next_path_poth:Vector3 = NPCnav_3d.get_next_path_position()
 			var new_velocity:Vector3 = global_position.direction_to(next_path_poth) * SPEED
 			velocity.x = new_velocity.x
@@ -55,7 +62,6 @@ func _physics_process(delta: float) -> void:
 			#so the npc turnes and dont look weird
 			if not Vector3(global_position - next_point).length() < 0.05:
 				look_at(next_point)
-				rotate_y(PI)
 			else:
 				_set_state(NPCStates.IDLE)
 			if velocity.z <= 1.4 && velocity.x <= 1.4 && is_on_floor():
@@ -108,4 +114,20 @@ func hit(damage: int):
 			hp = 0
 		$Rembot_NPC/Sprite3D/SubViewport/Npc_walker_healthbar.value = hp
 	print("waow " + str(hp))
-	
+
+func see():
+	if ray_ray.is_colliding() and can_shoot == true:
+		if ray_ray.get_collider().name == "Player":
+			print("hest")
+			look_at(Player.position)
+			shoot()
+			can_shoot = false
+			await get_tree().create_timer(0.5).timeout
+			can_shoot = true
+
+func shoot():
+	var instance = bullet.instantiate()
+	instance.damage = 10
+	instance.position = ray_ray.global_position
+	instance.transform.basis = start.global_transform.basis.rotated(ray_ray.global_transform.basis * Vector3(0, -1, 0), PI/180)
+	get_parent().add_child(instance)
