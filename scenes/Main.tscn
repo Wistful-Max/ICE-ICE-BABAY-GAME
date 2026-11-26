@@ -77,8 +77,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4969323, 0.49999952, 3.3468
 [node name="MuzzleFlash" parent="Player/Camera3D/rifle" parent_id_path=PackedInt32Array(935475493, 1625825733) index="0" unique_id=1216595498]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
+[node name="m16" parent="Player/Camera3D/rifle" parent_id_path=PackedInt32Array(935475493, 1625825733) index="1" unique_id=1133798884]
+transform = Transform3D(-2.1855682e-09, 0, 0.05, 0, 0.05, 0, -0.05, 0, -2.1855682e-09, 0.3627081, -0.18152809, 0.2518798)
+
 [node name="Barrel" parent="Player/Camera3D/rifle" parent_id_path=PackedInt32Array(935475493, 1625825733) index="3" unique_id=6085584]
-transform = Transform3D(0.99999917, 0, -3.907985e-14, 0, 1, 0, 3.907985e-14, 0, 0.99999917, 1.6447408, -0.10908866, 0.23181248)
+transform = Transform3D(0.99999887, 0, -5.3290705e-14, 0, 1, 0, 5.3290705e-14, 0, 0.99999887, 0.9607794, -0.123286724, 0.24818754)
 
 [node name="Sprite3D" parent="Player/Camera3D" parent_id_path=PackedInt32Array(935475493, 544414845) index="2" unique_id=221479811]
 texture = SubResource("ViewportTexture_bjd11")
@@ -94,9 +97,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.597496, 0.49186063, 0.4255
 walk_pathNPC = [NodePath("../walk_points/mark1"), NodePath("../walk_points/mark2"), NodePath("../walk_points/mark3"), NodePath("../walk_points/mark4"), NodePath("../walk_points/mark5"), NodePath("../walk_points/mark6"), NodePath("../walk_points/mark7"), NodePath("../walk_points/mark8"), NodePath("../walk_points/mark9")]
 
 [node name="Npc_hostile" parent="." unique_id=1265114573 node_paths=PackedStringArray("walk_pathNPC") instance=ExtResource("12_bjd11")]
-transform = Transform3D(1, 0, 0, 0, 0.7956433, -0.6057653, 0, 0.6057652, 0.7956434, -10.428558, 0.50190085, -6.6409063)
+transform = Transform3D(1, 0, 0, 0, 0.79564315, -0.6057654, 0, 0.60576534, 0.7956432, -10.428558, 0.50190085, -6.6409063)
 walk_pathNPC = [NodePath("../walk_points/mark7"), NodePath("../walk_points/mark8"), NodePath("../walk_points/mark9")]
 
 [editable path="Player"]
 [editable path="Player/Camera3D/rifle"]
+[editable path="Player/Camera3D/rifle/m16"]
 [editable path="Player/Camera3D/gunplakeholder"]
