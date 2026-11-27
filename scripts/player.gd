@@ -131,8 +131,7 @@ func _input(event: InputEvent) -> void:
 
 func game_over():
 	print("Hester. 🐎🐎🐎🐎🐎🐎🐎🐎🐎🐎")
-	$Camera3D/Sprite3D/BlackScreen.visible = true
-	$Camera3D/Sprite3D/SubViewport/GameOver.visible = true
+	$Camera3D/Sprite3D/GameOver.visible = true
 	
 func hit(damage: int):
 	if hp > 0:
